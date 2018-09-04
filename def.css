@@ -1,0 +1,235 @@
+html, body {
+    background-color: grey;
+    font-family: "ElizabethSerif","Palatino Linotype","Book Antiqua","Palatino","Georgia",sans-serif;
+    text-align: left;
+}
+li {
+    margin-bottom: 5px;
+}
+th {
+    text-align: center;
+}
+/*.playertable td, th {
+    text-align: left;
+    border: 1px solid silver;
+}*/
+#textblock {
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+    padding: 1%;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+#stipendtable {
+    border: 1px solid silver;
+    margin: 10px;
+}
+#stipendtable th, #stipendtable td{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.bglightyellow {
+    background-color: #EEE8AA;
+}
+.bglightorange {
+    background-color: #ffd480;
+}
+.alignright {
+    text-align: right;
+}
+.alignleft {
+    text-align: left;
+}
+.aligncenter {
+    text-align: center;
+}
+.gradient {
+    background: linear-gradient(to right, #d6d3c0, #f9f9f9);
+}
+.indent {
+    text-indent: -5px; 
+    padding-left: 10px !important;
+    padding-bottom: : 5px;
+}
+.indent2 {
+    text-indent: -5px;
+    padding-left: 15px !important;
+}
+.ignoreindent {
+    text-indent: 0px !important;
+    padding-left: 5px !important;
+}
+
+.playertable {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1%;
+    margin-bottom: 2%;
+    border: 1px solid silver;
+}
+.playername {
+    width: 390px;
+    background-color: #DAA520;
+}
+.itemtable {
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    font-size: 10pt;
+    font-family: "Calibri Light",sans-serif;
+}
+.itemtable td, .itemtable th{
+    text-indent: -5px; 
+    padding-left: 10px;
+    padding-bottom: : 5px;
+}
+.itemname {
+    background-color: #c68628;
+    color: white;
+    font-size: 12pt;
+    min-width: 350px;
+    text-align: left;
+    padding-top: 4px;
+}
+.itemlevel {
+    float:right;
+    padding-right: 3px;
+}
+.flavortext {
+    font-style: italic;
+    font-size: 9pt;
+    font-family: "Cambria", serif;
+    background: linear-gradient(to right, #d6d3c0, #f9f9f9);
+    padding-top: 3px;
+    padding-bottom: 2px;
+    text-indent: 0px !important;
+    padding-left: 5px !important;
+}
+.power{    
+    background: linear-gradient(to right, #d6d3c0, #f9f9f9);
+}
+.dropbtn {
+    cursor: pointer;
+}
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: inline-block;
+}
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+}
+.allytable {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    font-size: 11pt;
+    display: inline-block;
+    font-family: "Calibri Light",sans-serif;
+}
+.allytable td, .allytable th{
+    text-indent: -5px; 
+    padding-left: 10px;
+    padding-bottom: : 5px;
+}
+.allyheader {
+    background-color: #c9bb8c;
+}
+.allyname {
+    min-width: 400px;
+    font-size: 12pt;
+    text-align: left;
+    font-weight: bold;
+}
+.allyclass {
+    float:right;
+    padding-right: 3px;
+    font-weight: normal;
+}
+.allyactiontype {
+    border-top: 1px solid #baa971;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #d9ceac;
+    font-style: italic;
+    font-size: 10pt;
+}
+.allypower {
+    background-color: #e3dac2;
+}
+.allyscorestart {
+    border-top: 1px solid black;
+}
+.allyscoretable {
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    font-size: 11pt;
+    display: inline-block;
+}
+.allyscoretable td, .allyscoretable th{
+    text-indent: 0px; 
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-bottom: : 5px;
+}
+
+.atwill {
+    color: #fff;
+    background-color: #5a8f63;
+}
+.encounter {
+    color: #fff;
+    background-color: #7f1730;
+}
+.daily {
+    color: #fff;
+    background-color: #393b3a;
+}
+
+.powername {
+    font-size: 12pt;
+    min-width: 350px;
+    text-align: left;
+    padding-top: 4px;
+}
+.powertable {
+    border: 1px solid #fff;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    font-size: 10pt;
+    font-family: "Calibri Light",sans-serif;
+    color: #000;
+    padding-left: 5px;
+}
+
+.powertable td, .powertable th{ 
+    padding-left: 5px;
+    padding-bottom: : 5px;
+}
+.expand {
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.powerlevel {
+    font-weight: normal;
+    float: right;
+    padding-right: 3px;
+    font-size: 10pt;
+    padding-top: 2pt;
+}

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Zeitgeist</title>
+
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="generator" content="Webocton - Scriptly (www.scriptly.de)" />
+    <link rel="icon" type="image/png" href="/icon_16x16.png" />
+    <link rel="stylesheet" type="text/css" href="def.css" />
+</head>
+
+<body>
+    <div id="textblock">
+        <h2>Zeitgeist News & Infos</h2>
+        <div style="float:right;">
+            <table id="stipendtable">
+                <tr><th colspan="2" class="bglightorange">aktuelles Stipendium</th></tr>
+                <tr><td>Thomas</td><td>12340</td></tr>
+                <tr><td>Max</td><td>12340</td></tr>
+                <tr><td>Richard</td><td>12340</td></tr>
+                <tr><td>Daniel</td><td>12340</td></tr>
+                <tr><td>Fabian</td><td>12340</td></tr>
+                <tr><th colspan="2" class="bglightorange">Prestige</th></tr>
+                <tr><td>Flint</td><td>2</td></tr>
+                <tr><td>Risur</td><td>3</td></tr>
+                <tr><td>Unseen Court</td><td>2</td></tr>
+                <tr><td>Clergy</td><td>1</td></tr>
+            </table>
+        </div>
+        <p>
+            Hier mal ein paar &Auml;nderungen, die ab n&auml;chster Session (au&szlig;er bei starken Einw&auml;nden) in Kraft treten:
+        </p>
+            <ul>
+                <li>XP werden abgeschafft. Level gibt's an bestimmten Punkten in der Story</li>
+                <li>
+                    Nachdem ich das Stipendium System noch einmal durchgelesen habe und das durchgerechnet habe mit dem, was ihr in sp&auml;teren Abenteuern    haben sollt ist mir aufgefallen, das, &auml;hhhh, <i>nichts</i> stimmt.
+                    Euer neues Stipendium ist deshalb im Augenblick: 12340
+                    <br />
+                    Dies bekommt ihr in Gold ausbezahlt (abz&uuml;glich des Preises aller derzeit angeforderten magischen Items). Das hei&szlig;t auch, dass ihr Verbrauchsgegenst&auml;nde wie Ritualkomponenten und Tr&auml;nke von jetzt an selbst zahlen m&uuml;sst oder finden, vom RHC gibt's aber auch hier beinahe alles zu kaufen(siehe auch den n&auml;chsten Punkt) und nach Ausf&uuml;llen der entsprechenden Formulare vielleicht auch eine R&uuml;ckerstattung.
+                    <br />
+                    Vom RHC bekommt ihr den Listenpreis zur&uuml;ck, wenn ihr Items abgebt, die ihr angefordert hattet (f&uuml;r neue Items, die ihr findet, nicht).
+                </li>
+                <li>
+                    <b>Von euch wird trotzdem immer noch erwartet, s&auml;mtliche magischen Items abzugeben, die ihr nicht &uuml;ber das RHC angefordert habt!</b><br />Abgegebene Items k&ouml;nnt ihr danach vom RHC anfordern.
+                    In einigen F&auml;llen wird euch auch das RHC erlauben, die Items (ohne daf&uuml;r zu bezahlen) zu behalten.
+                </li>
+                <li>
+                    Ich werde von jetzt an das Prestige System mehr benutzen (s. S. 21&amp;22 Player's Guide), insbesondere f&uuml;r das Anfordern von magischen Items. Daf&uuml;r gilt folgendes:
+                    <br />
+                    <ul>
+                        <li>Favor Stufe 1: Beliebige Anzahl an gew&ouml;hnlichen Items anfordern.</li>
+                        <li>Favor Stufe 2: Ein ungew&ouml;hnliches Item oder drei ungew&ouml;hnliche Verbrauchsgegenst&auml;nde anfordern.</li>
+                        <li>Favor Stufe 3: Ein seltenes Item anfordern. Es ist nicht garantiert, das das seltene Item verf&uuml;gbar ist!</li>
+                        <li style="list-style-type: none;">Favor Modifier:</li>
+                        <li>Favor +1: Das angeforderte Item hat ein h&ouml;heres Level als die Gruppe. (maximal Gruppenlevel +4)</li>
+                        <li>Favor +1: Jedes ungew&ouml;hnliche oder seltene Item mehr als 8 im Besitz der gesamten Gruppe erh&ouml;ht die Stufe um 1.</li>
+                        <li>Favor +1: Ein Item eines h&ouml;heren Ranges (d.h. heroisch, paragon, episch) anfordern erh&ouml;ht die Stufe um 1.</li>
+                    </ul>
+                    Au&szlig;erdem gilt die Tabelle auf Seite 21 was Zeit angeht.
+                    <br />
+                    Um herauszufinden, welche Seltenheit ein Item hat, entweder dieses <a href="http://www.wizards.com/dndinsider/compendium/" target="_blank" style="text-decoration: none; color: blue;">Tool</a> benutzen oder diese <a href="http://zeitgeist.lhmh.bplaced.net/random-items.html"  target="_blank" style="text-decoration: none; color: blue;">Seite</a> durchsuchen.
+                </li>
+            </ul>
+            <h3>Hausregeln</h3>
+                <ul>
+                    <li>Critical Range kann nur tempor&auml;r durch eine Power erh&ouml;ht werden.</li>
+                </ul>
+            <h3>Tabelle magischer Items<br /><span style="font-size: 8pt;">mit Item Mouseover! :)</span></h3>
+            <div>
+            <table class="playertable">
+                <tr>
+                    <th colspan="5" class="playername">Thomas</th>
+                </tr>
+                <tr class="bglightyellow"><th>Item</th><th>Level</th><th>Seltenheit</th><th>Preis</th><th>RHC?</th></tr>
+                <tr>
+                    <td class="dropdown dropbtn">Symbol of Life +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Symbol of Life<span class="itemlevel">Level 3+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">The power of your faith adds energy to your healing powers</td></tr>
+                                <tr> <td>Lvl 3</td><td>+1</td>   <td>680 gp</td><td>Lvl 18</td><td>+4</td>   <td>65.000 gp</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>2.600 gp</td><td>Lvl 23</td><td>+5</td>  <td>325.000 gp</td></tr>
+                                <tr><td>Lvl 12</td><td>+3</td><td>13.000 gp</td><td>Lvl 27</td><td>+6</td><td>1.625.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Implement (Holy Symbol)</b></td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b> +1d6 damage per plus</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily &#10022; Healing)</b> Minor Action.Until the end of your turn, any character healed by one of your encounter powers or daily powers regains an additional 1d6 hit points.<br />Level 12 or 17: regains an additional 2d6 hit points.<br />Level 22 or 27: Regains an additional 3d6 hit points.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Uncommon</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Veteran's Armor +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Veteran's Armor<span class="itemlevel">Level 2+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">Battered and worn, this unassuming armor helps you get the most out of your experiences.</td></tr>
+                                <tr> <td>Lvl 2</td><td>+1</td>   <td>520 gp</td><td>Lvl 17</td><td>+4</td>   <td>65.000 gp</td></tr>
+                                <tr> <td>Lvl 7</td><td>+2</td> <td>2.600 gp</td><td>Lvl 22</td><td>+5</td>  <td>325.000 gp</td></tr>
+                                <tr><td>Lvl 12</td><td>+3</td><td>13.000 gp</td><td>Lvl 27</td><td>+6</td><td>1.625.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Armor:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> AC</td></tr>
+                                <tr><td colspan="6"><b>Property:</b> When you spend an action point, you gain a +1 item bonus to all attack rolls and defenses until the end of your next turn.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily)</b> Free Action. Spend an action point. You do not gain the normal extra action. Instead, you regain the use of one expended daily power.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Common</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Golden Icon of Urim
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Golden Icon of Urim<span class="itemlevel">Level 3</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">About three inches across, this coin has primitive designs of earth, stone, and dots that might represent stars.</td></tr>
+                                <tr><td><b>Rare Wondrous Item</b></td><td>680 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> When you use an action point, you can create a wall of stone 2 squares high, which fills 3 contiguous squares within 5 squares of you. The wall lasts until the end of your next turn.<br />&nbsp;&nbsp;While on Axis Island, a person holding the icon or wearing it as a necklace gains Resist All 5 while not bloodied, and can influence earth magic. Most notably, earth elementals are drawn to it, and they defend the bearer and obey his or her orders.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>Rare</td>
+                    <td>680</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Amulet of Protection +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Amulet of Protection<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This light blue amulet increases your defenses.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Item Slot:</b> Neck</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Fortitude, Reflex, and Will</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><td colspan="5">&nbsp;</td></tr>
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><th colspan="3" class="bglightyellow">Gesamtpreis</th><td colspan="2"><b>2080</b></td></tr>
+                <tr><th colspan="3" class="bglightorange">Gesamtpreis (RHC)</th><td colspan="2"><b>1400</b></td></tr>
+                <tr><th colspan="4" class="bglightyellow">Anzahl ungew. & selten (RHC bekannt)</th><td class="alignright"><b>1</b></td></tr>
+            </table>
+            <table class="playertable">
+                <tr>
+                    <th colspan="5" class="playername">Max</th>
+                </tr>
+                <tr class="bglightyellow">
+                    <th>Item</th>
+                    <th>Level</th>
+                    <th>Seltenheit</th>
+                    <th>Preis</th>
+                    <th>RHC</th>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Baffling Cape +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Baffling Cape<span class="itemlevel">Level 3+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">g</td></tr>
+                                <tr> <td>Lvl 3</td><td>+1</td>   <td>680 gp</td><td>Lvl 18</td><td>+4</td>   <td>85.000 gp</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>3.400 gp</td><td>Lvl 23</td><td>+5</td>  <td>425.000 gp</td></tr>
+                                <tr><td>Lvl 13</td><td>+3</td><td>17.000 gp</td><td>Lvl 28</td><td>+6</td><td>2.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Item Slot</b> Neck</td></tr>
+                                <tr><td colspan="6"><b>Enhancement </b>Fortitude, Reflex and Will</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily &#10022; Teleportation):</b> Immediate Reaction. <i>Trigger:</i> An enemy adjacent to you misses you with a melee attack. <i>Effect:</i> Swap positions with the triggering enemy.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>Uncommon</td>
+                    <td>680</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Reading Spectacles
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Reading Spectacles<span class="itemlevel">Level 2</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">You can decipher any written passage while gazing through these unadorned copper eyeglasses.</td></tr>
+                                <tr><td><b>Common Head Slot Item</b></td><td>520 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> You can read any language while wearing this item.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Common</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Window of Escape
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Window of escape<span class="itemlevel">Level 2</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">When you need to get out of a room in a hurry, this unremarkable window is your best escape</td></tr>
+                                <tr><td><b>Common Wondrous Item</b></td><td>520 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b>When you jump or fall out of this window, you take no damage when you hit the ground, regardless of the distance.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Common</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Targeting Hand Crossbow +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Targeting Weapon<span class="itemlevel">Level 3+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">When the bolt flies from your weapon, it shows the way to victory.</td></tr>
+                                <tr> <td>Lvl 3</td><td>+1</td>   <td>680 gp</td><td>Lvl 18</td><td>+4</td>   <td>85.000 gp</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>3.400 gp</td><td>Lvl 23</td><td>+5</td>  <td>425.000 gp</td></tr>
+                                <tr><td>Lvl 13</td><td>+3</td><td>17.000 gp</td><td>Lvl 28</td><td>+6</td><td>2.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Weapon:</b> Bow, crossbow</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b>Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b>+1d6 damage per plus, and the target grants combat advantage until the end of your next turn.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Free Action. <i>Trigger:</i> You hit an enemy with an attack using this weapon. <i>Effect:</i> Until the end of your next turn, you and your allies can roll twice on attaqck rolls against that enemy and use either result.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>Uncommon</td>
+                    <td>680</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Badger Gun +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Badger Gun</th></tr>
+                                <tr><td colspan="6" class="flavortext">You pull the trigger, and a badger springs forth to attack your foes.</td></tr>
+                                <tr> <td>Lvl 3</td><td>+1</td>   <td>680 gp</td><td>Lvl 18</td><td>+4</td>   <td>85.000 gp</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>3.400 gp</td><td>Lvl 23</td><td>+5</td>  <td>425.000 gp</td></tr>
+                                <tr><td>Lvl 13</td><td>+3</td><td>17.000 gp</td><td>Lvl 28</td><td>+6</td><td>2.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Uncommon Weapon:</b> Any firearm</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b>Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b>+1d6 damage per plus</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Immediate Reaction <i>Trigger:</i> You hit a target with a ranged attack using this gun. <i>Effect (Free Action):</i> A Dreaming badger (page 515) appears in an unoccupied square adjacent to the target, and the target is grabbed by the badger. The badger has your defenses, and hit points equal to half your bloodied value. If it is destroyed, you lose a healing surge. The badger does not take its own actions. When you use a move action, you may have the badger use a move action as well. You may spend a standard action to have it attack. Its attack bonus is equal to your attack bonus with the <i>badger gun</i>. Apply the weapon’s critical property to the badger’s attacks.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>Uncommon</td>
+                    <td>680</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Magic Leather Armor +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Magic Amor<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">A set of basic yet effective enchanted armor.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Armor:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> AC</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><th colspan="3" class="bglightyellow">Gesamtpreis</th><td colspan="2"><b>3440</b></td></tr>
+                <tr><th colspan="3" class="bglightorange">Gesamtpreis (RHC)</th><td colspan="2"><b>2760</b></td></tr>
+                <tr><th colspan="4" class="bglightyellow">Anzahl ungew. & selten (RHC bekannt)</th><td class="alignright"><b>1</b></td></tr>
+            </table>
+            <table class="playertable">
+                <tr><th colspan="5" class="playername">Richard</th></tr>
+                <tr class="bglightyellow">
+                    <th>Item</th>
+                    <th>Level</th>
+                    <th>Seltenheit</th>
+                    <th>Preis</th>
+                    <th>RHC</th>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Crown of Leaves
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Crown of Leaves<span class="itemlevel">Level 7</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">This halo of ever-fresh oak leaves pulses with primal energy.</td></tr>
+                                <tr><td><b>Common Head Slot Items</b></td><td>2.600 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> Gain a +2 item bonus to Nature and Insight checks.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>7</td>
+                    <td>Common</td>
+                    <td>2600</td>
+                    <td>no</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Golden Icon of Avilona
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Golden Icon of Avilona<span class="itemlevel">Level 2</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">About three inches across, this coin has primitive designs of birds, clouds, and dots that might represent stars.</td></tr>
+                                <tr><td><b>Rare Wondrous Item</b></td><td>520 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> When you use an action point, once before the end of your next turn you can fly your speed as a move action.<br />&nbsp;&nbsp;While on Axis Island, a person holding the icon or wearing it as a necklace gains a jump speed equal to his or her walk speed, and can influence air magic. Most notably, air elementals are drawn to it, and they defend the bearer and obey his or her orders.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Rare</td>
+                    <td>520</td>
+                    <td>no</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Golden Icon of Nem
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Golden Icon of Nem<span class="itemlevel">Level 4</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">About three inches across, this coin has primitive designs of shadows, the moon, and dots that might represent stars.</td></tr>
+                                <tr><td><b>Rare Wondrous Item</b></td><td>840 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> When you use an action point, you may become insubstantial until the end of your next turn. This effect ends if you attack.<br />&nbsp;&nbsp;While on Axis Island, a person holding the icon or wearing it as a necklace gains darkvision, and can influence shadow magic. Most notably, shadow creatures are drawn to it, and they defend the bearer and obey his or her orders.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>4</td>
+                    <td>Rare</td>
+                    <td>840</td>
+                    <td>no</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Orb of Unlucky Exchanges +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Orb of Unlucky Exchanges<span class="itemlevel">Level 3+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This orb offers relief to an ally and unleashes terrible retribution upon an enemy.</td></tr>
+                                <tr> <td>Lvl 3</td><td>+1</td>   <td>680 gp</td><td>Lvl 18</td><td>+4</td>   <td>85.000 gp</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>3.400 gp</td><td>Lvl 23</td><td>+5</td>  <td>425.000 gp</td></tr>
+                                <tr><td>Lvl 13</td><td>+3</td><td>17.000 gp</td><td>Lvl 28</td><td>+6</td><td>2.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Implement (Orb)</b></td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b>Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b>+1d6 damage per plus</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Free Action. Use this power when you hit a target with an attack with this implement. One effect affecting you or an ally within 5 squares of you ends. The target gains that effect with the same duration.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>3</td>
+                    <td>Uncommon</td>
+                    <td>680</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Mage Cuffs
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Mage Cuffs<span class="itemlevel">Level 1</span></th></tr>
+                                <tr><td><b>Common Wondrous Item</b></td><td>360 gp gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> When a person wearing <i>mage-cuffs</i> uses any magical power (generally defined as an arcane, divine, primal, psionic, or shadow power, or equivalent nontypedabilities), the cuffs glow, make a warning whistle sound, and deal 10 damage to the wearer. A creature reduced to 0 hit points this way becomes unconscious.<br />&nbsp;&nbsp;<i>Mage-cuffs</i> can only be applied to helpless or willing creatures of Small or Medium size.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Robe of Contingency
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Robe of Contingency<span class="itemlevel">Level 4+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">Stitched with thread from the Feywild, this robe is favored by many wizards for its ability to escape a bind.</td></tr>
+                                <tr> <td>Lvl 4</td><td>+1</td>   <td>840 gp</td><td>Lvl 19</td><td>+4</td>   <td>105.000 gp</td></tr>
+                                <tr> <td>Lvl 9</td><td>+2</td> <td>4.200 gp</td><td>Lvl 24</td><td>+5</td>  <td>525.000 gp</td></tr>
+                                <tr><td>Lvl 14</td><td>+3</td><td>21.000 gp</td><td>Lvl 29</td><td>+6</td><td>2.625.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Armor:</b> Cloth</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> AC</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily &#10022; Teleportation):</b> Immediate Reaction. Use this power while you are bloodied and when an attack damages you. Teleport 6 squares, and you can spend a healing surge.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>4</td>
+                    <td>Uncommon</td>
+                    <td>840</td>
+                    <td>yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Staff of the Ancients +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Staff of the Ancients<span class="itemlevel">Level 9+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This wooden staff is covered in a spiral of symbols that denote the primal elements of air, earth, fire, and water. When you attack, it turns briefly to gold.</td></tr>
+                                <tr> <td>Lvl 9</td><td>+2</td>  <td>4.200 gp</td><td>Lvl 24</td><td>+5</td>  <td>525.000 gp</td></tr>
+                                <tr><td>Lvl 14</td><td>+3</td> <td>21.000 gp</td><td>Lvl 29</td><td>+6</td><td>2.625.000 gp</td></tr>
+                                <tr><td>Lvl 19</td><td>+4</td><td>105.000 gp</td><td colspan="3">&nbsp;</td></tr>
+                                <tr><td colspan="6"><b>Rare Implement:</b> Staff or totem</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b>Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b>+1d6 acid, cold, fire, lightning and thunder damage per plus</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Encounter):</b> Immediate Reaction. <i>Trigger:</i> You make an attack roll with a power that deals acid, cold, fire, lightning, or thunder damage. <i>Effect:</i> You may reroll the attack roll.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Standard Action. You use an attack power with the acid, cold, fire, lightning, or thunder keyword that an enemy you can see used in the last round. You choose the targets using your own space as the origin, but you use the enemy’s attack bonus.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>9</td>
+                    <td>Rare</td>
+                    <td>4200</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Amulet of the Ancients
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Amulet of the Ancients<span class="itemlevel">Level 8+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This stone amulet is engraved with ancient pictograms depicting a tree surrounded by the primal elements of earth, water, wind, and fire. When you are attacked, the amulet turns briefly to gold.</td></tr>
+                                <tr> <td>Lvl 8</td><td>+2</td> <td>3.400 gp</td><td>Lvl 23</td><td>+5</td>  <td>425.000 gp</td></tr>
+                                <tr><td>Lvl 13</td><td>+3</td><td>17.000 gp</td><td>Lvl 28</td><td>+6</td><td>2.125.000 gp</td></tr>
+                                <tr><td>Lvl 18</td><td>+4</td><td>85.000 gp</td><td colspan="3">&nbsp;</td></tr>
+                                <tr><td colspan="6"><b>Rare Neck Slot Item</b></td></tr>
+                                <tr><td colspan="6"><b>Property:</b>You gain resist acid, cold, fire, lightning, and thunder equal to the amulet’s enhancement bonus.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Encounter):</b> Minor Action. You may make a saving throw.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Free Action. You and each ally within 5 squares gains resist 5 acid, cold, fire, lightning, and thunder until the end of your next turn.<br /><i>Lvl 12 or 17:</i> Resist 10.<br /><i>Lvl 22 or 27:</i> Resist 15.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>8</td>
+                    <td>Rare</td>
+                    <td>3400</td>
+                    <td>No</td>
+                </tr>
+                <tr><th colspan="3" class="bglightyellow">Gesamtpreis</th><td colspan="2"><b>13440</b></td></tr>
+                <tr><th colspan="3" class="bglightorange">Gesamtpreis (RHC)</th><td colspan="2"><b>1880</b></td></tr>
+                <tr><th colspan="4" class="bglightyellow">Anzahl ungew. & selten (RHC bekannt)</th><td class="alignright"><b>2</b></td></tr>
+            </table>
+            <table class="playertable">
+                <tr><th colspan="5" class="playername">Daniel</th></tr>
+                <tr class="bglightyellow">
+                    <th>Item</th>
+                    <th>Level</th>
+                    <th>Seltenheit</th>
+                    <th>Preis</th>
+                    <th>RHC?</th>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Mjolnir
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Mjolnir<span class="itemlevel">Level 5+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">G&ouml;tterhammer</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td> <td>1.000 gp</td><td>Lvl 16</td><td>+4</td>  <td>125.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td> <td>5.000 gp</td><td>Lvl 21</td><td>+5</td>  <td>625.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>25.000 gp</td><td>Lvl 26</td><td>+6</td><td>3.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Legend&auml;rer Hammer</b></td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Angriff und Schaden (Schaden verdoppelt)</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b> +2d6 thunder and lightning damage per plus</td></tr>
+                                <tr><td colspan="6"><b>Property:</b> Das Level von Mjolnir entspricht dem Level des Benutzers.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (At-Will):</b> Free Action. Schadensart von Physisch auf Donner oder Blitz umstellen.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Encounter):</b> Free Action. Der n&auml;chste ausgef&uuml;hrte Nahkampangriff erh&auml;lt 10 Felder Reichweite.</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Standard Action. In 5 Feldern Umkreis werden alle ausgew&auml;hlten Ziele f&uuml;r 1d10 Blitzschaden pro Plus getroffen. Funktioniert nur unter freiem Himmel. Prim&auml;res Attribut gegen Reflex.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>6</td>
+                    <td>Legendary</td>
+                    <td>5600</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Lifedrinker Greatspear +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Lifedrinker Weapon<span class="itemlevel">Level 5+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This weapon transfers an enemy’s vitality to you.</td></tr>
+                                <tr> <td>Lvl 5</td><td>+1</td> <td>1.000 gp</td><td>Lvl 20</td><td>+4</td>  <td>125.000 gp</td></tr>
+                                <tr><td>Lvl 10</td><td>+2</td> <td>5.600 gp</td><td>Lvl 25</td><td>+5</td>  <td>625.000 gp</td></tr>
+                                <tr><td>Lvl 15</td><td>+3</td><td>25.000 gp</td><td>Lvl 30</td><td>+6</td><td>3.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Weapon:</b> Any Melee</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b> +1d6 necrotic damage per plus</td></tr>
+                                <tr><td colspan="6"><b>Property:</b> When you drop an enemy to 0 hit points or fewer with a melee attack made with this weapon, gain 5 temporary hit points.<br /><i>Level 15 or 20:</i> Gain 10 temporary hit points.<br /><i>Level 25 or 30:</i> Gain 15 temporary hit points.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>5</td>
+                    <td>Uncommon</td>
+                    <td>1000</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Frostwolf Pelt +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Frostwolf Pelt<span class="itemlevel">Level 4+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">The icy white fur of this cloak protects you against frost.</td></tr>
+                                <tr> <td>Lvl 4</td><td>+1</td>   <td>840 gp</td><td>Lvl 19</td><td>+4</td>   <td>105.000 gp</td></tr>
+                                <tr> <td>Lvl 9</td><td>+2</td> <td>4.200 gp</td><td>Lvl 24</td><td>+5</td>  <td>525.000 gp</td></tr>
+                                <tr><td>Lvl 14</td><td>+3</td><td>21.000 gp</td><td>Lvl 29</td><td>+6</td><td>2.625.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Uncommon Neck Slot Item</b></td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b>Fortitude, Reflex and Will</td></tr>
+                                <tr><td colspan="6"><b>Property:</b> You gain resist 5 cold.<br /><i>Level 14 or 19:</i> Resist 10 cold<br /><i>Level 24 or 29:</i> Resist 15 cold</td></tr>
+                                <tr><td colspan="6" class="power"><b>Power (Daily):</b> Immediate Reaction. <i>Trigger:</i> An enemy adjacent to you hits you. <i>Effect:</i> The triggering enemy is knocked prone.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>4</td>
+                    <td>Uncommon</td>
+                    <td>840</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Magic Plate Armor +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Magic Amor<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">A set of basic yet effective enchanted armor.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Armor:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> AC</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Gauntlets of Ogre Power
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Gauntlets of Ogre Power<span class="itemlevel">Level 5</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">These oversized armored gloves increase your strength and can be activated to increase your damage.</td></tr>
+                                <tr><td><b>Rare Hand Slot Item</b></td><td>1.000 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> Gain a +1 item bonus to Athletics checks and Strength ability checks (but not Strength attacks).</td></tr>
+                                <tr><td colspan="2" class="power"><b>Power (Daily):</b> Free Action. Use this power when you hit with a melee attack. Add a +5 power bonus to the damage roll.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>5</td>
+                    <td>Rare</td>
+                    <td>1000</td>
+                    <td>Yes</td>
+                </tr>
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><th colspan="3" class="bglightyellow">Gesamtpreis</th><td colspan="2"><b>7900</b></td></tr>
+                <tr><th colspan="3" class="bglightorange">Gesamtpreis (RHC)</th><td colspan="2"><b>2200</b></td></tr>
+                <tr><th colspan="4" class="bglightyellow">Anzahl ungew. & selten (RHC bekannt)</th><td class="alignright"><b>1</b></td></tr>
+            </table>
+            <table class="playertable">
+                <tr><th colspan="5" class="playername">Fabian</th></tr>
+                <tr class="bglightyellow">
+                    <th>Item</th>
+                    <th>Level</th>
+                    <th>Seltenheit</th>
+                    <th>Preis</th>
+                    <th>RHC?</th>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Vicious Pistol +1 (2 mal)
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Vicious Weapon<span class="itemlevel">Level 2+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">Some wielders claim this weapon takes pleasure in dealing pain.</td></tr>
+                                <tr> <td>Lvl 2</td><td>+1</td>   <td>520 gp</td><td>Lvl 17</td><td>+4</td>   <td>65.000 gp</td></tr>
+                                <tr> <td>Lvl 7</td><td>+2</td> <td>2.600 gp</td><td>Lvl 22</td><td>+5</td>  <td>325.000 gp</td></tr>
+                                <tr><td>Lvl 12</td><td>+3</td><td>13.000 gp</td><td>Lvl 27</td><td>+6</td><td>1.625.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Weapon:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b> +1d12 per plus</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>1040</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Magic Rapier +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Magic Weapon<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">A basic enchanted weapon.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Weapon:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Attack rolls and damage rolls</td></tr>
+                                <tr><td colspan="6"><b>Critical:</b> +1d6 per plus</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Magic Hide Armor +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Magic Amor<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">A set of basic yet effective enchanted armor.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Armor:</b> Any</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> AC</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Reading Spectacles
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Reading Spectacles<span class="itemlevel">Level 2</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">You can decipher any written passage while gazing through these unadorned copper eyeglasses.</td></tr>
+                                <tr><td><b>Common Head Slot Item</b></td><td>520 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> You can read any language while wearing this item.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Common</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Amulet of Protection +1
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="6" class="itemname">Amulet of Protection<span class="itemlevel">Level 1+</span></th></tr>
+                                <tr><td colspan="6" class="flavortext">This light blue amulet increases your defenses.</td></tr>
+                                <tr> <td>Lvl 1</td><td>+1</td>  <td>360 gp</td><td>Lvl 16</td><td>+4</td>   <td>45.000 gp</td></tr>
+                                <tr> <td>Lvl 6</td><td>+2</td><td>1.800 gp</td><td>Lvl 21</td><td>+5</td>  <td>225.000 gp</td></tr>
+                                <tr><td>Lvl 11</td><td>+3</td><td>9.000 gp</td><td>Lvl 26</td><td>+6</td><td>1.125.000 gp</td></tr>
+                                <tr><td colspan="6"><b>Item Slot:</b> Neck</td></tr>
+                                <tr><td colspan="6"><b>Enhancement:</b> Fortitude, Reflex, and Will</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Acrobat Boots
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Acrobat Boots<span class="itemlevel">Level 2</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">These enchanted boots enhance your acrobatic skills.</td></tr>
+                                <tr><td><b>Common Feet Slot Item</b></td><td>520 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> Gain a +1 item bonus to Acrobatics checks.</td></tr>
+                                <tr><td colspan="2" class="power"><b>Power (At-Will):</b> Minor Action. Stand up from prone.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>2</td>
+                    <td>Uncommon</td>
+                    <td>520</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td class="dropdown dropbtn">Burglar Gloves
+                        <div class="dropdown-content">
+                            <table class="itemtable">
+                                <tr><th colspan="2" class="itemname">Reading Spectacles<span class="itemlevel">Level 1</span></th></tr>
+                                <tr><td colspan="2" class="flavortext">These fingerless black gloves are embroidered with dark red sigils and improve your thievery skills.</td></tr>
+                                <tr><td><b>Common Hand Slot Item</b></td><td>360 gp</td></tr>
+                                <tr><td colspan="2"><b>Property:</b> Gain a +1 item bonus to Thievery checks.</td></tr>
+                            </table>
+                        </div>
+                    </td>
+                    <td>1</td>
+                    <td>Common</td>
+                    <td>360</td>
+                    <td>Yes</td>
+                </tr>
+                <tr><td colspan="5">&nbsp;</td></tr> 
+                <tr><th colspan="3" class="bglightyellow">Gesamtpreis</th><td colspan="2"><b>3520</b></td></tr>
+                <tr><th colspan="3" class="bglightorange">Gesamtpreis (RHC)</th><td colspan="2"><b>3520</b></td></tr>
+                <tr><th colspan="4" class="bglightyellow">Anzahl ungew. & selten (RHC bekannt)</th><td class="alignright"><b>1</b></td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
