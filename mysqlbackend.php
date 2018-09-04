@@ -1,7 +1,6 @@
 <?php
 
-/*
-Example for addPower values:*/
+/*Example for addPower values:*/
 $name = "Lance of Faith";
 $class = "Cleric";
 $level = 1;
