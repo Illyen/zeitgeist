@@ -254,6 +254,29 @@ function addUser($username) {
 	return $userID;
 }
 
+function getUserID($username) {
+	$conn = connectMySQL();
+	$userID = 0;
+	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
+	$statementSearchUser->bind_param("s",$username);
+	$statementSearchUser->execute();
+	$statementSearchUser->store_result();
+	$statementSearchUser->bind_result($userID);
+	$statementSearchUser->fetch();
+	return $userID;
+	disconnectMySQL($conn);
+}
+
+function getPower($powerID) {
+	$conn = connectMySQL();
+	$stm = $conn->prepare("SELECT power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor FROM powers WHERE power_id LIKE ?");
+	$stm->bind_param("s",$username);
+	$stm->execute();
+	$stm->store_result();
+	$stm->bind_result($userID);
+	$stm->fetch();
+	disconnectMySQL($conn);
+}
 
 
 

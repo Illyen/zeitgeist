@@ -3,7 +3,7 @@
 <?php
 $pageTitle = "Zeitgeist";
 require 'head.php';
-require 'generateMagicItemTables.php';
+require_once 'generateMagicItemTables.php';
 ?>
 <body>
 <div id="textblock">

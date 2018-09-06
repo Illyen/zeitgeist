@@ -3,8 +3,7 @@
 <?php
 $pageTitle = "Zeitgeist - Powers";
 require 'head.php';
-require 'generatePowerTables.php';
-require 'mysqlbackend.php'
+require_once 'generatePowerTables.php';
 ?>
 <body>
 <div id="textblock">

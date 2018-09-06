@@ -1,6 +1,6 @@
 <?php
 
-require 'var.php';
+require_once 'var.php';
 //generiert zu einem gegebenem startlevel eine preistabelle, nicht getestet, aber theoretisch fertig
 function writeLvlLine($lvl1, $lvl2) {
 
