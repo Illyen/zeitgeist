@@ -34,7 +34,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$pass	= "55qaqNLGWYLG5AMk";
 	$db 	= "lhmh_zeitgeist";
 
-	$conn = new mysqli($server, $user, $pass, $db);
+	$conn = connectMySQL($server, $user, $pass, $db);
 	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
 
 
@@ -43,10 +43,10 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	//check if power already exists, can't use try / catch, because power name is not unqiue. not sure if possible to make unique (not sure if power names are unique) for now, check like this
 	//actually stupid, since if they are not unique, this will be a hindrance, and if they are not, creating a unique index is possible.
 	//will keep for now, maybe change later
-	$statementPowerearch = $conn->prepare("SELECT id FROM powers WHERE power_name LIKE ?");
-	$statementPowerearch->bind_param("s",$name);
-	$statementPowerearch->execute();
-	$statementPowerearch->store_result();
+	$statementPowerSearch = $conn->prepare("SELECT id FROM powers WHERE power_name LIKE ?");
+	$statementPowerSearch->bind_param("s",$name);
+	$statementPowerSearch->execute();
+	$statementPowerSearch->store_result();
 
 	//if power didn't exist before, INSERT
 	if($stmt->num_rows === 0){
@@ -77,14 +77,14 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	else{
 		echo "Power already existed, getting ID... <br />\n";
 
-		$statementPowerearch->bind_result($power_id);
-		$statementPowerearch->fetch();
+		$statementPowerSearch->bind_result($power_id);
+		$statementPowerSearch->fetch();
 		$powerID = $power_id;
 
 		echo "ID is $powerID<br />\n";
 	}
 	//close the search
-	$statementPowerearch->close();
+	$statementPowerSearch->close();
 
 //Insert new keywords, bind keyword id to power id;
 
@@ -145,14 +145,15 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
     	$statementLineInsert->execute();
     	$lineNumber++;
 	}
-	$conn->close();
+
+	disconnectMySQL($conn);
 
 	return $powerID;
 
 }
 
-function connectMySQL ($server,$user,$pass) {
-	$conn = new mysqli($server, $user, $pass);
+function connectMySQL ($server,$user,$pass,$db) {
+	$conn = new mysqli($server, $user, $pass, $db);
 	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
 	else return $conn;
 }
