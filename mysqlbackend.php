@@ -27,8 +27,9 @@ $lines = array(
 
 
 function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines) {
-
-	//MYSQL Anmeldedaten
+//=================================================
+//	MYSQL Anmeldedaten
+//=================================================
 	$server = "localhost";
 	$user 	= "lhmh_zeitgeist";
 	$pass	= "55qaqNLGWYLG5AMk";
@@ -38,112 +39,103 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
 
 
-//Insert appropriate values into "powers" table
-
-	//check if power already exists, can't use try / catch, because power name is not unqiue. not sure if possible to make unique (not sure if power names are unique) for now, check like this
-	//actually stupid, since if they are not unique, this will be a hindrance, and if they are not, creating a unique index is possible.
-	//will keep for now, maybe change later
+//=================================================
+//	Insert appropriate values into "powers" table
+//=================================================
 	$statementPowerSearch = $conn->prepare("SELECT power_id FROM powers WHERE power_name LIKE ?");
 	$statementPowerSearch->bind_param("s",$name);
 	$statementPowerSearch->execute();
 	$statementPowerSearch->store_result();
 
-	//if power didn't exist before, INSERT
+	//if power is new, INSERT
 	if($statementPowerSearch->num_rows === 0){
+		$statementPowerSearch->close();
 		echo "New power, inserting... ";
-
 		//prepare NULL values:
-
     	if ($rangevalue === 0) $rangevalue = NULL;
     	if ($aoe === 0) $aoe = NULL;
     	if ($flavor === "") $flavor = NULL;
 
-
-		//prepared statement for power insert
-		$statementPower = $conn->prepare("INSERT INTO powers (power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor)
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		//bind params, s= String, i=integer
+		$statementPower = $conn->prepare("INSERT INTO powers (power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 		$statementPower->bind_param("ssiiiiiiis",$name, $class, $level, $type, $type2, $action, $range, $rangevalue, $aoe, $flavor);
-		//execute the insertion
 		$statementPower->execute();
-		//save id of power to variable
-		$powerID = $conn->insert_id;
-		//close statement
 		$statementPower->close();
-
+		$powerID = $conn->insert_id;
 		echo "Insertion successful, power_id is $powerID <br />\n";
 	}
-	//if power existed before, get the ID and save to variable
+	//if power existed before, get the ID and exit
 	else{
-		echo "Power already existed, getting ID... ";
-
-		$statementPowerSearch->bind_result($power_id);
+		echo "Power already existed, with ID ";
+		$powerID = 0;
+		$statementPowerSearch->bind_result($powerID);
 		$statementPowerSearch->fetch();
-		$powerID = $power_id;
+		$statementPowerSearch->close();
 
-		echo "ID is $powerID<br />\n";
+		echo "$powerID<br />\n";
+		exit("Stoppping execution. Check your input or contact admin for changing or deleting existing powers.");
 	}
-	//close the search
-	$statementPowerSearch->close();
 
-//Insert new keywords, bind keyword id to power id;
 
-	//prepared statement for keyword insert, already existing records are ignored
-	$statementKeywordInsert = $conn->prepare("INSERT INTO keywords (keyword_name) VALUES (?)");
-	$statementKeywordSearch = $conn->prepare("SELECT keyword_id FROM keywords WHERE keyword_name LIKE ?");
-	$statementKeywordAssoc  = $conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)");
-	//bind params
+//=================================================
+//	Insert new keywords, bind keyword id to power id;
+//=================================================
+
 	$keywordName = "";
-	$keywordID = 0;
-	$statementKeywordInsert->bind_param("s", $keywordName);
+	$statementKeywordSearch = $conn->prepare("SELECT keyword_id FROM keywords WHERE keyword_name LIKE ?");
+	$statementKeywordInsert = $conn->prepare("INSERT INTO keywords (keyword_name) VALUES (?)");
 	$statementKeywordSearch->bind_param("s", $keywordName);
-	$statementKeywordAssoc ->bind_param("ii", $powerID, $keywordID);
-
+	$statementKeywordInsert->bind_param("s", $keywordName);
 
 	foreach ($keywords as $key => $value) {
 		$keywordName = $value;
-
-		//catch duplicate entry
-
-		try {
+		$statementKeywordSearch->execute();
+		$statementKeywordSearch->store_result();
+		//if keyword is new, insert
+		if ($statementKeywordSearch->num_rows === 0) {
+			$statementKeywordSearch->close();
+			echo "New keyword, inserting ... ";
 			$statementKeywordInsert->execute();
+			$statementKeywordInsert->close();
 			$keywordID = $conn->insert_id;
-			echo "New keyword inserted, keyword_id is $keywordID<br />\n";
+			echo "Insertion successful, keyword_id is $keywordID <br />\n";
 		}
-		catch (Exception $e) {
-			if ($conn->errno === 1062) {
-				echo "Keyword already exists, getting ID... ";
-				$statementKeywordSearch->execute();
-				$statementKeywordSearch->store_result();
-				$statementKeywordSearch->bind_result($keyword_name);
-				$statementKeywordSearch->fetch();
-				$keywordID = $keyword_name;
-				echo "keyword_id is $keywordID <br />\n";
-			}
-			else {
-				die("Unexpected error inserting while inserting keyword: ".$conn->connect_error);
-			}
+		else {
+			echo "Keyword already exists, with ID ";
+			$keywordID = 0;
+			$statementKeywordSearch->bind_result($keywordID);
+			$statementKeywordSearch->fetch();
+			$statementKeywordSearch->close();
+			echo "$keywordID<br />\n";
 		}
-
+		$statementKeywordAssoc =$conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)");
+		$statementKeywordAssoc->bind_param("ii", $powerID, $keywordID);
 		$statementKeywordAssoc->execute();
-
-		echo "Associated $keywordName (ID: $keywordID) to $name (ID: $powerID)<br />";
+		$statementKeywordAssoc->close();
+		echo "Associated $keywordName (id: $keywordID) to $name (id: $powerID)<br />\n";
 	}
 
-//Insert lines
+
+//=================================================
+//	Insert and bind the actual text of the power.
+//=================================================
 	$statementLineInsert = $conn->prepare("INSERT INTO power_lines (power_id, line_number, line_indent, line_gradient, line_type, line_text) VALUES (?,?,?,?,?,?)");
 	$statementLineInsert->bind_param("iiiiss",$powerID,$lineNumber,$indent,$gradient,$lineType,$lineText);
 
 	$lineNumber = 0;
-	foreach ($lines as $lineNumber => $line) {
+	foreach ($lines as $line) {
+		echo "Line $lineNumber: ";
 		$indent = $line[0];
+		echo "indent $indent, ";
 		$gradient = $line[1];
+		echo "gradient $gradient,<br />\n";
     	$lineType = ($line[2] !== "") ? $line[2] : NULL;
-    	$lineText = $line[4];
+    	echo "<b>$lineType:</b> ";
+    	$lineText = $line[3];
+    	echo "$lineText<br />\n";
     	$statementLineInsert->execute();
     	$lineNumber++;
 	}
-
+	$statementLineInsert->close();
 	disconnectMySQL($conn);
 
 	return $powerID;

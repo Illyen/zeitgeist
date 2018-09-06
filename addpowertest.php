@@ -32,7 +32,8 @@ $lines = array(
 	array(0,0,"","Increase damage to 2d8 + Wisdom modifier at 21st level.")
 );
 
-addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
+$result = addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
+echo "Power $name with id: $result more or less successfully added.";
 
 
 
