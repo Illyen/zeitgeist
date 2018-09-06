@@ -50,7 +50,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 	//if power didn't exist before, INSERT
 	if($statementPowerSearch->num_rows === 0){
-		echo "New power, inserting... <br />\n";
+		echo "New power, inserting... ";
 
 		//prepare NULL values:
 
@@ -71,11 +71,11 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 		//close statement
 		$statementPower->close();
 
-		echo "Insertion successful, ID is $powerID";
+		echo "Insertion successful, power_id is $powerID <br />\n";
 	}
 	//if power existed before, get the ID and save to variable
 	else{
-		echo "Power already existed, getting ID... <br />\n";
+		echo "Power already existed, getting ID... ";
 
 		$statementPowerSearch->bind_result($power_id);
 		$statementPowerSearch->fetch();
@@ -107,26 +107,23 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 		try {
 			$statementKeywordInsert->execute();
+			$keywordID = $conn->insert_id;
+			echo "New keyword inserted, keyword_id is $keywordID<br />\n";
 		}
 		catch (Exception $e) {
 			if ($conn->errno === 1062) {
-				echo "Keyword already exists, getting ID... <br />";
+				echo "Keyword already exists, getting ID... ";
 				$statementKeywordSearch->execute();
 				$statementKeywordSearch->store_result();
 				$statementKeywordSearch->bind_result($keyword_name);
 				$statementKeywordSearch->fetch();
 				$keywordID = $keyword_name;
-				echo "ID is $keywordID";
+				echo "keyword_id is $keywordID <br />\n";
 			}
 			else {
 				die("Unexpected error inserting while inserting keyword: ".$conn->connect_error);
 			}
 		}
-		$keywordID = $conn->insert_id;
-
-
-
-		echo "ID is $keywordID<br />\n";
 
 		$statementKeywordAssoc->execute();
 
