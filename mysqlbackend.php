@@ -105,7 +105,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 		//catch duplicate entry
 
 		try {
-			$statementKeywordInsert->execute()
+			$statementKeywordInsert->execute();
 		}
 		catch (Exception $e) {
 			if ($conn->errno === 1062) {
