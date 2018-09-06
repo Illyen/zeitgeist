@@ -8,7 +8,7 @@ $password	= "55qaqNLGWYLG5AMk";
 //open SQL Connection
 $conn = new mysqli($servername, $username, $password);
 
-function generatePlayerTable($playername)
+function generatePlayerTable($playername) {
 
 	$ausgabe  = "<table class=\"playertable\">\n";
 	$ausgabe .= "<tr><td class=\"playername\" colspan=\"5\">".$playername."</td></tr>";
@@ -21,7 +21,7 @@ function generatePlayerTable($playername)
 	return $ausgabe;
 
 
-
+}
 
 //close SQL Connection
 $conn->close();

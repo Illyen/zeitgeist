@@ -4,7 +4,6 @@
 <?php
 $pageTitle = "Zeitgeist - PowersTest";
 require 'head.php';
-require 'generatePowerTables.php';
 require 'mysqlbackend.php'
 ?>
 <body>
