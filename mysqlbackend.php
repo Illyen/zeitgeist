@@ -43,7 +43,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	//check if power already exists, can't use try / catch, because power name is not unqiue. not sure if possible to make unique (not sure if power names are unique) for now, check like this
 	//actually stupid, since if they are not unique, this will be a hindrance, and if they are not, creating a unique index is possible.
 	//will keep for now, maybe change later
-	$statementPowerSearch = $conn->prepare("SELECT id FROM powers WHERE power_name LIKE ?");
+	$statementPowerSearch = $conn->prepare("SELECT power_id FROM powers WHERE power_name LIKE ?");
 	$statementPowerSearch->bind_param("s",$name);
 	$statementPowerSearch->execute();
 	$statementPowerSearch->store_result();
