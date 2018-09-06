@@ -163,7 +163,7 @@ $powers = array(
 	);
 */
 
-function assocPowersWithPlayer($username, $powers)
+function assocPowers($username, $powers)
 {
 	$conn = connectMySQL();
 

@@ -39,7 +39,7 @@ $powers = array(array("Lance of Faith",0));
 //$result = addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
 
 
-$result = assocPowerWithPlayer($username,$powers);
+$result = assocPowers($username,$powers);
 
 
 
