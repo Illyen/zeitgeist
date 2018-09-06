@@ -2,8 +2,9 @@
 <html lang="de">
 <?php
 $pageTitle = "Zeitgeist - Powers";
-include 'head.php';
-include 'generatePowerTables.php';
+require 'head.php';
+require 'generatePowerTables.php';
+require 'mysqlbackend.php'
 ?>
 <body>
 <div id="textblock">
@@ -11,9 +12,9 @@ include 'generatePowerTables.php';
 include 'text.txt';
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
-
-
-
+foreach ($players as $playername => $itemtable) {
+	echo generatePlayerTable($playername);
+}
 }
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 

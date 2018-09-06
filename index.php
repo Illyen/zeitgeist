@@ -2,8 +2,8 @@
 <html lang="de">
 <?php
 $pageTitle = "Zeitgeist";
-include 'head.php';
-include 'generateMagicItemTables.php';
+require 'head.php';
+require 'generateMagicItemTables.php';
 ?>
 <body>
 <div id="textblock">
