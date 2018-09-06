@@ -94,6 +94,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$statementKeywordAssoc  = $conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?");
 	//bind params
 	$keywordName = "";
+	$keywordID = 0;
 	$statementKeywordInsert->bind_param("s",$keywordName);
 	$statementKeywordSearch->bind_param("s",$keywordName);
 	$statementKeywordAssoc ->bind_param("ii",$powerID,$keywordID);
