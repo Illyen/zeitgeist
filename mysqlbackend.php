@@ -83,6 +83,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$keywordName = "";
 	$statementKeywordSearch = $conn->prepare("SELECT keyword_id FROM keywords WHERE keyword_name LIKE ?");
 	$statementKeywordInsert = $conn->prepare("INSERT INTO keywords (keyword_name) VALUES (?)");
+	$statementKeywordAssoc =$conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)");
 	$statementKeywordSearch->bind_param("s", $keywordName);
 	$statementKeywordInsert->bind_param("s", $keywordName);
 
@@ -92,10 +93,8 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 		$statementKeywordSearch->store_result();
 		//if keyword is new, insert
 		if ($statementKeywordSearch->num_rows === 0) {
-			$statementKeywordSearch->close();
 			echo "New keyword, inserting ... ";
 			$statementKeywordInsert->execute();
-			$statementKeywordInsert->close();
 			$keywordID = $conn->insert_id;
 			echo "Insertion successful, keyword_id is $keywordID <br />\n";
 		}
@@ -104,15 +103,15 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 			$keywordID = 0;
 			$statementKeywordSearch->bind_result($keywordID);
 			$statementKeywordSearch->fetch();
-			$statementKeywordSearch->close();
 			echo "$keywordID<br />\n";
 		}
-		$statementKeywordAssoc =$conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)");
 		$statementKeywordAssoc->bind_param("ii", $powerID, $keywordID);
 		$statementKeywordAssoc->execute();
-		$statementKeywordAssoc->close();
 		echo "Associated $keywordName (id: $keywordID) to $name (id: $powerID)<br />\n";
 	}
+	$statementKeywordSearch->close();
+	$statementKeywordInsert->close();
+	$statementKeywordAssoc ->close();
 
 
 //=================================================
