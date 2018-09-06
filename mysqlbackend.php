@@ -42,7 +42,7 @@ function disconnectMySQL ($conn) {
 }
 
 //=================================================
-//	Adding a new power
+//	Adding a new power, returns power id if successful, -1 otherwise
 //=================================================
 
 
@@ -82,7 +82,8 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 		$statementPowerSearch->close();
 
 		echo "$powerID<br />\n";
-		exit("Stoppping execution. Check your input or contact admin for changing or deleting existing powers.");
+		echo("Check your input or contact admin for changing or deleting existing powers.");
+		return -1;
 	}
 
 
@@ -172,7 +173,10 @@ function assocPowers($username, $powers)
 	$statementSearchUser->bind_param("s",$username);
 	$statementSearchUser->execute();
 	$statementSearchUser->store_result();
-	if($statementSearchUser->num_rows === 0) exit("User not existing, stopping execution.");
+	if($statementSearchUser->num_rows === 0){
+		echo "User not existing, stopping execution.";
+		return -1;
+	}
 	$statementSearchUser->bind_result($userID);
 	$statementSearchUser->fetch();
 	$statementSearchUser->close();
@@ -188,7 +192,10 @@ function assocPowers($username, $powers)
 		$powername = $power[0];
 		$statementSearchPower->execute();
 		$statementSearchPower->store_result();
-		if($statementSearchPower->num_rows === 0) exit("Power not existing, stopping execution.");
+		if($statementSearchPower->num_rows === 0){
+			echo "Power not existing, stopping execution.";
+			return -1;
+		}
 		$statementSearchPower->fetch();
 		$powerIDs[] = array($powerID, $power[1]);
 
@@ -199,13 +206,52 @@ function assocPowers($username, $powers)
 	$statementAssoc->bind_param("iii",$userID,$powerID,$usablecount);
 	foreach ($powerIDs as $power) {
 		$powerID = $power[0];
-		$usablecount = $ $power[1];
+		$usablecount = $power[1];
 		$statementAssoc->execute();
 		echo "Added power with id $powerID to user $username (id $userID) with $usablecount uses.<br />\n";
-		$statementAssoc->close();
 	}
+	$statementAssoc->close();
 
 	disconnectMySQL($conn);
+
+	return 1;
+}
+
+//=================================================
+//	Adding a user, returns user id of newly created or existing user
+//=================================================
+
+
+function addUser($username) {
+
+	$conn = connectMySQL();
+
+	$userID = 0;
+
+	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
+	$statementSearchUser->bind_param("s",$username);
+	$statementSearchUser->execute();
+	$statementSearchUser->store_result();
+	if($statementSearchUser->num_rows === 0) {
+		$statementAddUser = $conn->prepare("INSERT INTO users (user_name) VALUES (?)");
+		$statementAddUser->bind_param("s",$username);
+		$statementAddUser->execute();
+		$statementAddUser->close();
+
+		$userID = $conn->insert_id;
+	}
+	else {
+		echo "Username already taken";
+		$statementSearchUser->bind_result($userID);
+		$statementSearchUser->fetch();
+	}
+
+	$statementSearchUser->close();
+
+
+	disconnectMySQL($conn);
+
+	return $userID;
 }
 
 
