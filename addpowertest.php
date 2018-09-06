@@ -7,9 +7,7 @@ require 'head.php';
 require 'mysqlbackend.php'
 ?>
 <body>
-<div id="textblock">
 <?php
-include 'text.txt';
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
 
@@ -41,10 +39,6 @@ addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 
  ?>
-</div>
 </body>
-</html><?php
-
-
-?>
+</html>
 
