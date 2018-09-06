@@ -32,8 +32,14 @@ $lines = array(
 	array(0,0,"","Increase damage to 2d8 + Wisdom modifier at 21st level.")
 );
 
+
+$username = "Thomas";
+$powers = array(array("Lance of Faith",0));
+
 $result = addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
-echo "Power $name with id: $result more or less successfully added.";
+
+
+$result = assocPowerWithPlayer($username,$powers);
 
 
 

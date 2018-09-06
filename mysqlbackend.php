@@ -20,24 +20,34 @@ $lines = array(
 	array(0,0,"Attack","Wisdom vs. Reflex"),
 	array(1,1,"Hit","1d8 + Wisdom modifier radiant damage, and one ally you can see gains a +2 power bonus to his or her next attack roll against the target."),
 	array(0,0,"","Increase damage to 2d8 + Wisdom modifier at 21st level.")
-);
+);*/
 
-*/
-//Create rollback in case of error?
-
-
-function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines) {
 //=================================================
 //	MYSQL Anmeldedaten
 //=================================================
+
+
+function connectMySQL () {
 	$server = "localhost";
 	$user 	= "lhmh_zeitgeist";
 	$pass	= "55qaqNLGWYLG5AMk";
 	$db 	= "lhmh_zeitgeist";
-
-	$conn = connectMySQL($server, $user, $pass, $db);
+	$conn = new mysqli($server, $user, $pass, $db);
 	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
+	else return $conn;
+}
 
+function disconnectMySQL ($conn) {
+	$conn->close();
+}
+
+//=================================================
+//	Adding a new power
+//=================================================
+
+
+function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines) {
+	$conn = connectMySQL();
 
 //=================================================
 //	Insert appropriate values into "powers" table
@@ -65,7 +75,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	}
 	//if power existed before, get the ID and exit
 	else{
-		echo "Power already existed, with ID ";
+		echo "Power already exists, with ID ";
 		$powerID = 0;
 		$statementPowerSearch->bind_result($powerID);
 		$statementPowerSearch->fetch();
@@ -141,14 +151,90 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 }
 
-function connectMySQL ($server,$user,$pass,$db) {
-	$conn = new mysqli($server, $user, $pass, $db);
-	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
-	else return $conn;
+//=================================================
+//	Adding multiple (or only one) powers to a user
+//=================================================
+
+/*example for Values
+$username = "Thomas";
+$powers = array(
+	array("Lance of Faith",0),
+	array("Astral Seal",0),
+	);
+*/
+
+function assocPowersWithPlayer($username, $powers)
+{
+	$conn = connectMySQL();
+
+	$userID = 0;
+	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
+	$statementSearchUser->bind_param("s",$username);
+	$statementSearchUser->execute();
+	$statementSearchUser->store_result();
+	if($statementSearchUser->num_rows === 0) exit("User not existing, stopping execution.");
+	$statementSearchUser->bind_result($userID);
+	$statementSearchUser->fetch();
+	$statementSearchUser->close();
+
+	$powerIDs = array();
+	$powerID = 0;
+	$usablecount = 0;
+	$powername = "";
+	$statementSearchPower = $conn->prepare("SELECT power_id FROM powers WHERE power_name LIKE ?");
+	$statementSearchPower->bind_param("s",$powername);
+	$statementSearchPower->bind_result($powerID);
+	foreach ($powers as $power) {
+		$powername = $power[0];
+		$statementSearchPower->execute();
+		$statementSearchPower->store_result();
+		if($statementSearchPower->num_rows === 0) exit("Power not existing, stopping execution.");
+		$statementSearchPower->fetch();
+		$powerIDs[] = array($powerID, $power[1]);
+
+	}
+	$statementSearchPower->close();
+
+	$statementAssoc = $conn->prepare("INSERT INTO user_powers (user_id, power_id, user_powers_usablecount) VALUES (?,?,?)");
+	$statementAssoc->bind_param("iii",$userID,$powerID,$usablecount);
+	foreach ($powerIDs as $power) {
+		$powerID = $power[0];
+		$usablecount = $ $power[1];
+		$statementAssoc->execute();
+		echo "Added power with id $powerID to user $username (id $userID) with $usablecount uses.<br />\n";
+		$statementAssoc->close();
+	}
+
+	disconnectMySQL($conn);
 }
 
-function disconnectMySQL ($conn) {
-	$conn->close();
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
