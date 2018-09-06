@@ -90,7 +90,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 	//prepared statement for keyword insert, already existing records are ignored
 	$statementKeywordInsert = $conn->prepare("INSERT INTO keywords (keyword_name) VALUES (?)");
-	$statementKeywordSearch = $conn->prepare("SELECT id FROM keywords WHERE keyword_name LIKE ?");
+	$statementKeywordSearch = $conn->prepare("SELECT keyword_id FROM keywords WHERE keyword_name LIKE ?");
 	$statementKeywordAssoc  = $conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?");
 	//bind params
 	$keywordName = "";
