@@ -135,7 +135,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 //Insert lines
 	$statementLineInsert = $conn->prepare("INSERT INTO power_lines (power_id, line_number, line_indent, line_gradient, line_type, line_text) VALUES (?,?,?,?,?,?)");
-	$statementLineInsert = $conn->bind_param("iiiiss",$powerID,$lineNumber,$indent,$gradient,$lineType,$lineText);
+	$statementLineInsert->bind_param("iiiiss",$powerID,$lineNumber,$indent,$gradient,$lineType,$lineText);
 
 	$lineNumber = 0;
 	foreach ($lines as $lineNumber => $line) {
