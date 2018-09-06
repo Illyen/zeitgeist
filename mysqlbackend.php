@@ -49,7 +49,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$statementPowerSearch->store_result();
 
 	//if power didn't exist before, INSERT
-	if($stmt->num_rows === 0){
+	if($statementPowerSearch->num_rows === 0){
 		echo "New power, inserting... <br />\n";
 
 		//prepare NULL values:
