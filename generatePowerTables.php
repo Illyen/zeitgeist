@@ -2,15 +2,29 @@
 
 require_once 'mysqlbackend.php';
 
-function generatePlayerTable($playername) {
+function generatePlayerPowerTable($playername) {
 
 	echo '<table class="playertable">',"\n";
 	echo '<tr><td class="playername" colspan="5">',$playername,'</td></tr>',"\n";
 	echo '<tr class="bglightyellow"><td colspan="2">Name</td><td style="width:20px;">L.</td><td class="aligncenter">&#9684;</td><td class="aligncenter">#</td></tr>',"\n";
-//add powers, one per line
-   generatePowerTable(6);
-
-//end table
+	$powerIDArray = getPowers(getUserID($playername));
+	foreach ($powerIDArray as $power) {
+		generatePowerTable($power['power_id']);
+		echo '<td class="aligncenter">';
+		if($power[$usablecount == 0]) {
+			echo '&#8734;';
+		}
+		else {
+			for ($i=0;$i<$power['usedcount'];$i++) {
+				echo '<input type="checkbox" name=",',getUserID($playername),'_',$power['power_id'],'" checked>';
+			}
+			for ($i=0;$i<($power['usablecount']-$power['usedcount']);$i++) {
+				echo '<input type="checkbox" name=",',getUserID($playername),'_',$power['power_id'],'">';
+			}
+		}
+		echo '</td>',"\n";
+		echo '</tr>',"\n";
+	}
 	echo '</table>';
 
 
@@ -93,14 +107,32 @@ function generatePowerTable($powerID) {
 		echo $line['line_text'];
 		echo '</td></tr>',"\n";
 	}
+
 	echo '</table>',"\n";
+
 	echo '</div>',"\n";
+
 	echo '</span>',"\n";
+
 	echo '</td>',"\n";
-	echo '<td class="alignright">1</td>',"\n";
-	echo '<td class="aligncenter">&#9684;</td>',"\n";
-	echo '<td class="aligncenter">&#8734;</td>',"\n";
-	echo '</tr>',"\n";
+
+	echo '<td class="alignright">';
+	if ($powerArray['power_level']<1 or $powerArray['power_level']>99) {
+		echo '-';
+	}
+	else {
+		echo $powerArray['power_level'];
+	}
+	echo '</td>',"\n";
+
+	echo '<td class="aligncenter">';
+	switch ($powerArray['power_action']) {
+		case 0: echo '&#9684;'; break;
+		case 1: echo '&#10689;'; break;
+		case 2: echo '&#9685;'; break;
+		default: echo '&#9678;';
+	}
+	echo '</td>',"\n";
 }
 
 

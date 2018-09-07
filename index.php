@@ -12,7 +12,7 @@ include 'text.txt';
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
 foreach ($players as $playername => $itemtable) {
-	echo generatePlayerTable($playername);
+	echo generatePlayerItemTable($playername);
 }
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 

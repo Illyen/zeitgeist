@@ -11,7 +11,7 @@ require_once 'generatePowerTables.php'
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
 
-generatePlayerTable("Thomas");
+generatePlayerPowerTable("Thomas");
 
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 

@@ -117,7 +117,7 @@ function calculateHighestItemCount(){
 
 //generiert die komplette tabelle fuer einen spieler
 
-function generatePlayerTable($playername) {
+function generatePlayerItemTable($playername) {
 
 	global $players;
 	global $items;
