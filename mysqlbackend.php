@@ -279,4 +279,39 @@ function getPower($powerID) {
 	disconnectMySQL($conn);
 	return $powerArray;
 }
+
+function getKeywords($powerID) {
+	$conn = connectMySQL();
+	$stmK = $conn->prepare('SELECT keyword_name FROM keywords WHERE keyword_id IN (SELECT keyword_id FROM power_keywords WHERE power_ID = ? ) ORDER BY keyword_name');
+	$stmK->bind_param('i',$powerID);
+	$stmK->execute();
+	$keywordResult = $stmK->get_result();
+	$keywordArray = array();
+	while($row = $keywordResult->fetch_assoc()) {
+	  	$keywordArray[] = $row['keyword_name'];
+	}
+	$stmK->close();
+	disconnectMySQL($conn);
+	return $keywordArray;
+}
+
+function getLines($powerID) {
+	$conn = connectMySQL();
+	$stmL = $conn->prepare('SELECT line_indent, line_gradient, line_type, line_text FROM power_lines WHERE power_id = ? ORDER BY line_number');
+	$stmL->bind_param('i',$powerID);
+	$stmL->execute();
+	$lineResult = $stmL->get_result();
+	$linesArray = array();
+	while($row = $lineResult->fetch_assoc()) {
+	  	$linesArray[] = array 	(
+		  							'line_indent'	=>$row['line_indent'],
+		  							'line_gradient'	=>$row['line_gradient'],
+		  							'line_type'		=>$row['line_type'],
+		  							'line_text'		=>$row['line_text']
+	  							);
+	}
+	$stmL->close();
+	disconnectMySQL($conn);
+	return $linesArray;
+}
 ?>

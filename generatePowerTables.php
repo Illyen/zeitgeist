@@ -18,41 +18,9 @@ function generatePlayerTable($playername) {
 
 function generatePowerTable($powerID) {
 
-	$conn = connectMySQL();
-	$stmP = $conn->prepare('SELECT power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor FROM powers WHERE power_id = ?');
-	$stmP->bind_param('i',$powerID);
-	$stmP->execute();
-	$powerResult = $stmP->get_result();
-	if($powerResult->num_rows === 0) exit("ID $powerID not a valid powerID");
-	$powerArray = $powerResult->fetch_assoc();
-	$stmP->close();
-
-	$stmK = $conn->prepare('SELECT keyword_name FROM keywords WHERE keyword_id IN (SELECT keyword_id FROM power_keywords WHERE power_ID = ? ) ORDER BY keyword_name');
-	$stmK->bind_param('i',$powerID);
-	$stmK->execute();
-	$keywordResult = $stmK->get_result();
-	$keywordNames = array();
-	while($row = $keywordResult->fetch_assoc()) {
-	  	$keywordNames[] = $row['keyword_name'];
-	}
-	$stmK->close();
-
-	$stmL = $conn->prepare('SELECT line_indent, line_gradient, line_type, line_text FROM power_lines WHERE power_id = ? ORDER BY line_number');
-	$stmL->bind_param('i',$powerID);
-	$stmL->execute();
-	$lineResult = $stmL->get_result();
-	$linesArray = array();
-	while($row = $lineResult->fetch_assoc()) {
-	  	$linesArray[] = array 	(
-		  							'line_indent'	=>$row['line_indent'],
-		  							'line_gradient'	=>$row['line_gradient'],
-		  							'line_type'		=>$row['line_type'],
-		  							'line_text'		=>$row['line_text']
-	  							);
-	}
-	$stmL->close();
-
-	disconnectMySQL($conn);
+	$powerArray = getPower($powerID);
+	$keywordArray = getKeywords($powerID);
+	$linesArray = getLines($powerID);
 
 	echo '<tr>',"\n";
 
@@ -81,12 +49,12 @@ function generatePowerTable($powerID) {
 		case 1: echo 'Encounter'; break;
 		case 2: echo 'Daily'; break;
 	}
-	if (count($keywordNames)!= 0) {
+	if (count($keywordArray)!= 0) {
 		echo ' &#10022; ';
-		for($i=0;$i<(count($keywordNames)-1);$i++){
-			echo $keywordNames[$i],', ';
+		for($i=0;$i<(count($keywordArray)-1);$i++){
+			echo $keywordArray[$i],', ';
 		}
-		echo $keywordNames[(count($keywordNames)-1)];
+		echo $keywordArray[(count($keywordArray)-1)];
 	}
 	echo '</b></td></tr>',"\n";
 
