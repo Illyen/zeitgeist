@@ -8,7 +8,7 @@ function generatePlayerTable($playername) {
 	echo "<tr><td class=\"playername\" colspan=\"5\">".$playername."</td></tr>";
 	echo "<tr class=\"bglightyellow\"><td colspan=\"2\">Name</td><td style=\"width:20px;\">L.</td><td class=\"aligncenter\">&#9684;</td><td class=\"aligncenter\">#</td></tr>";
 //add powers, one per line
-
+   generatePowerTable(6);
 
 //end table
 	echo "</table>";
@@ -60,21 +60,32 @@ function generatePowerTable($powerID) {
 
 	echo " ",$powerArray['power_level'],"</span></th></tr>\n";
 	echo "<tr><td class=\"flavortext\" colspan=\"4\">",$powerArray['power_flavor'],"</td></tr>\n";
-	echo "<tr><td colspan=\"4\"><b>",$powerArray['power_type'];
+	echo "<tr><td colspan=\"4\"><b>";
 
-	if ($keyWordNames.count()!==0) {
+	switch ($powerArray['power_type']) {
+		case 0: echo "At-Will"; break;
+		case 1: echo "Encounter"; break;
+		case 2: echo "Daily"; break;
+	}
+	if (count($keywordNames)!= 0) {
 		echo " &#10022; ";
-		foreach ($keyWordNames as $keyword) {
-
-			//Komma Problem lösen! 
-			echo $keyword;
+		for($i=0;$i<(count($keywordNames)-1);$i++){
+			echo $keywordNames[$i],", ";
 		}
-
+		echo $keywordNames[(count($keywordNames)-1)]
 	}
 
 
+	switch ($powerArray['power_action']) {
+		case 0: echo "Standard Acion"; break;
+		case 1: echo "Move Action"; break;
+		case 2: echo "Minor Actionr"; break;
+		case 3: echo "Free Action"; break;
+		case 4: echo "Immediate Interrupt"; break;
+		case 5: echo "Immediate Reaction"; break;
+	}
 
-	" &#10022; Divine, Implement, Radiant</b></td></tr>\n";
+	echo "</b></td></tr>\n";
 }
 
 
