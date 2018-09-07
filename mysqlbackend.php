@@ -28,12 +28,12 @@ $lines = array(
 
 
 function connectMySQL () {
-	$server = "localhost";
-	$user 	= "lhmh_zeitgeist";
-	$pass	= "55qaqNLGWYLG5AMk";
-	$db 	= "lhmh_zeitgeist";
+	$server = 'localhost';
+	$user 	= 'lhmh_zeitgeist';
+	$pass	= '55qaqNLGWYLG5AMk';
+	$db 	= 'lhmh_zeitgeist';
 	$conn = new mysqli($server, $user, $pass, $db);
-	if ($conn->connect_error) die("Connection failed: ".$conn->connect_error);
+	if ($conn->connect_error) die('Connection failed: '.$conn->connect_error);
 	else return $conn;
 }
 
@@ -49,25 +49,23 @@ function disconnectMySQL ($conn) {
 function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines) {
 	$conn = connectMySQL();
 
-//=================================================
 //	Insert appropriate values into "powers" table
-//=================================================
-	$statementPowerSearch = $conn->prepare("SELECT power_id FROM powers WHERE power_name LIKE ?");
-	$statementPowerSearch->bind_param("s",$name);
+	$statementPowerSearch = $conn->prepare('SELECT power_id FROM powers WHERE power_name LIKE ?');
+	$statementPowerSearch->bind_param('s',$name);
 	$statementPowerSearch->execute();
 	$statementPowerSearch->store_result();
 
 	//if power is new, INSERT
 	if($statementPowerSearch->num_rows === 0){
 		$statementPowerSearch->close();
-		echo "New power, inserting... ";
+		echo 'New power, inserting... ';
 		//prepare NULL values:
     	if ($rangevalue === 0) $rangevalue = NULL;
     	if ($aoe === 0) $aoe = NULL;
-    	if ($flavor === "") $flavor = NULL;
+    	if ($flavor === '') $flavor = NULL;
 
-		$statementPower = $conn->prepare("INSERT INTO powers (power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-		$statementPower->bind_param("ssiiiiiiis",$name, $class, $level, $type, $type2, $action, $range, $rangevalue, $aoe, $flavor);
+		$statementPower = $conn->prepare('INSERT INTO powers (power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+		$statementPower->bind_param('ssiiiiiiis',$name, $class, $level, $type, $type2, $action, $range, $rangevalue, $aoe, $flavor);
 		$statementPower->execute();
 		$statementPower->close();
 		$powerID = $conn->insert_id;
@@ -75,28 +73,26 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	}
 	//if power existed before, get the ID and exit
 	else{
-		echo "Power already exists, with ID ";
+		echo 'Power already exists, with ID ';
 		$powerID = 0;
 		$statementPowerSearch->bind_result($powerID);
 		$statementPowerSearch->fetch();
 		$statementPowerSearch->close();
 
 		echo "$powerID<br />\n";
-		echo("Check your input or contact admin for changing or deleting existing powers.");
+		echo('Check your input or contact admin for changing or deleting existing powers.');
 		return -1;
 	}
 
 
-//=================================================
-//	Insert new keywords, bind keyword id to power id;
-//=================================================
+//	Insert new keywords into keywords and also bind keywords in power_keywords
 
-	$keywordName = "";
-	$statementKeywordSearch = $conn->prepare("SELECT keyword_id FROM keywords WHERE keyword_name LIKE ?");
-	$statementKeywordInsert = $conn->prepare("INSERT INTO keywords (keyword_name) VALUES (?)");
-	$statementKeywordAssoc =$conn->prepare("INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)");
-	$statementKeywordSearch->bind_param("s", $keywordName);
-	$statementKeywordInsert->bind_param("s", $keywordName);
+	$keywordName = '';
+	$statementKeywordSearch = $conn->prepare('SELECT keyword_id FROM keywords WHERE keyword_name = ?');
+	$statementKeywordInsert = $conn->prepare('INSERT INTO keywords (keyword_name) VALUES (?)');
+	$statementKeywordAssoc =$conn->prepare('INSERT INTO power_keywords (power_id, keyword_id) VALUES (?,?)');
+	$statementKeywordSearch->bind_param('s', $keywordName);
+	$statementKeywordInsert->bind_param('s', $keywordName);
 
 	foreach ($keywords as $key => $value) {
 		$keywordName = $value;
@@ -104,13 +100,13 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 		$statementKeywordSearch->store_result();
 		//if keyword is new, insert
 		if ($statementKeywordSearch->num_rows === 0) {
-			echo "New keyword, inserting ... ";
+			echo 'New keyword, inserting ... ';
 			$statementKeywordInsert->execute();
 			$keywordID = $conn->insert_id;
 			echo "Insertion successful, keyword_id is $keywordID <br />\n";
 		}
 		else {
-			echo "Keyword already exists, with ID ";
+			echo 'Keyword already exists, with ID ';
 			$keywordID = 0;
 			$statementKeywordSearch->bind_result($keywordID);
 			$statementKeywordSearch->fetch();
@@ -125,11 +121,11 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$statementKeywordAssoc ->close();
 
 
-//=================================================
-//	Insert and bind the actual text of the power.
-//=================================================
-	$statementLineInsert = $conn->prepare("INSERT INTO power_lines (power_id, line_number, line_indent, line_gradient, line_type, line_text) VALUES (?,?,?,?,?,?)");
-	$statementLineInsert->bind_param("iiiiss",$powerID,$lineNumber,$indent,$gradient,$lineType,$lineText);
+
+//	Insert and bind the text in power_lines
+
+	$statementLineInsert = $conn->prepare('INSERT INTO power_lines (power_id, line_number, line_indent, line_gradient, line_type, line_text) VALUES (?,?,?,?,?,?)');
+	$statementLineInsert->bind_param('iiiiss',$powerID,$lineNumber,$indent,$gradient,$lineType,$lineText);
 
 	$lineNumber = 0;
 	foreach ($lines as $line) {
@@ -157,11 +153,13 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 //=================================================
 
 /*example for Values
-$username = "Thomas";
+$username = 'Thomas';
 $powers = array(
-	array("Lance of Faith",0),
-	array("Astral Seal",0),
+	array('Lance of Faith',0),
+	array('Astral Seal',0),
 	);
+
+EXPECTS a nested array for $powers, so won't accept $powers=array('Lance of Faith',0); only $powers=array(array('Lance of Faith',0));
 */
 
 function assocPowers($username, $powers)
@@ -169,12 +167,12 @@ function assocPowers($username, $powers)
 	$conn = connectMySQL();
 
 	$userID = 0;
-	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
+	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name = ?");
 	$statementSearchUser->bind_param("s",$username);
 	$statementSearchUser->execute();
 	$statementSearchUser->store_result();
 	if($statementSearchUser->num_rows === 0){
-		echo "User not existing, stopping execution.";
+		echo 'User not existing, stopping execution.';
 		return -1;
 	}
 	$statementSearchUser->bind_result($userID);
@@ -185,7 +183,7 @@ function assocPowers($username, $powers)
 	$powerID = 0;
 	$usablecount = 0;
 	$powername = "";
-	$statementSearchPower = $conn->prepare("SELECT power_id FROM powers WHERE power_name LIKE ?");
+	$statementSearchPower = $conn->prepare("SELECT power_id FROM powers WHERE power_name = ?");
 	$statementSearchPower->bind_param("s",$powername);
 	$statementSearchPower->bind_result($powerID);
 	foreach ($powers as $power) {
@@ -193,7 +191,7 @@ function assocPowers($username, $powers)
 		$statementSearchPower->execute();
 		$statementSearchPower->store_result();
 		if($statementSearchPower->num_rows === 0){
-			echo "Power not existing, stopping execution.";
+			echo 'Power not existing, stopping execution.';
 			return -1;
 		}
 		$statementSearchPower->fetch();
@@ -202,8 +200,8 @@ function assocPowers($username, $powers)
 	}
 	$statementSearchPower->close();
 
-	$statementAssoc = $conn->prepare("INSERT INTO user_powers (user_id, power_id, user_powers_usablecount) VALUES (?,?,?)");
-	$statementAssoc->bind_param("iii",$userID,$powerID,$usablecount);
+	$statementAssoc = $conn->prepare('INSERT INTO user_powers (user_id, power_id, user_powers_usablecount) VALUES (?,?,?)');
+	$statementAssoc->bind_param('iii',$userID,$powerID,$usablecount);
 	foreach ($powerIDs as $power) {
 		$powerID = $power[0];
 		$usablecount = $power[1];
@@ -228,20 +226,20 @@ function addUser($username) {
 
 	$userID = 0;
 
-	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
-	$statementSearchUser->bind_param("s",$username);
+	$statementSearchUser = $conn->prepare('SELECT user_id FROM users WHERE user_name = ?');
+	$statementSearchUser->bind_param('s',$username);
 	$statementSearchUser->execute();
 	$statementSearchUser->store_result();
 	if($statementSearchUser->num_rows === 0) {
-		$statementAddUser = $conn->prepare("INSERT INTO users (user_name) VALUES (?)");
-		$statementAddUser->bind_param("s",$username);
+		$statementAddUser = $conn->prepare('INSERT INTO users (user_name) VALUES (?)');
+		$statementAddUser->bind_param('s',$username);
 		$statementAddUser->execute();
 		$statementAddUser->close();
 
 		$userID = $conn->insert_id;
 	}
 	else {
-		echo "Username already taken";
+		echo 'Username already taken.';
 		$statementSearchUser->bind_result($userID);
 		$statementSearchUser->fetch();
 	}
@@ -257,8 +255,8 @@ function addUser($username) {
 function getUserID($username) {
 	$conn = connectMySQL();
 	$userID = 0;
-	$statementSearchUser = $conn->prepare("SELECT user_id FROM users WHERE user_name LIKE ?");
-	$statementSearchUser->bind_param("s",$username);
+	$statementSearchUser = $conn->prepare('SELECT user_id FROM users WHERE user_name = ?');
+	$statementSearchUser->bind_param('s',$username);
 	$statementSearchUser->execute();
 	$statementSearchUser->store_result();
 	$statementSearchUser->bind_result($userID);
@@ -267,43 +265,18 @@ function getUserID($username) {
 	disconnectMySQL($conn);
 }
 
+//TO OPTIMIZE: allow getPower to accept an array, return an array of multiple powers. for now, this will do.
+
 function getPower($powerID) {
 	$conn = connectMySQL();
-	$stm = $conn->prepare("SELECT power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor FROM powers WHERE power_id LIKE ?");
-	$stm->bind_param("s",$username);
-	$stm->execute();
-	$stm->store_result();
-	$stm->bind_result($userID);
-	$stm->fetch();
+	$stmP = $conn->prepare('SELECT power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor FROM powers WHERE power_id = ?');
+	$stmP->bind_param('i',$powerID);
+	$stmP->execute();
+	$powerResult = $stmP->get_result();
+	if($powerResult->num_rows === 0) exit("ID $powerID not a valid powerID");
+	$powerArray = $powerResult->fetch_assoc();
+	$stmP->close();
 	disconnectMySQL($conn);
+	return $powerArray;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
