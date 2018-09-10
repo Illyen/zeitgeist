@@ -49,7 +49,7 @@ $line8gradient 		= "";*/
 <td>Class:
 <select name="power_class">
 <?php
-if (isset($_POST['power_class']&&$_POST['power_class']!=-1)) {
+if (isset($_POST['power_class'])&&$_POST['power_class']!=-1) {
 echo '<option value="Cleric"';	if ($_POST['power_class']=='Cleric') 	echo ' selected'; echo '>Cleric</option>'."\n";
 echo '<option value="Fighter"';	if ($_POST['power_class']=='Fighter') 	echo ' selected'; echo '>Fighter</option>'."\n";
 echo '<option value="Paladin"';	if ($_POST['power_class']=='Paladin') 	echo ' selected'; echo '>Paladin</option>'."\n";
@@ -164,8 +164,8 @@ echo '<option value="0">Standard</option>
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line0gradient">
-<input type="text" name="line0type"></td>
-<input type="text" name="line0" size="100"></td>
+<input type="text" name="line0type">
+<input type="text" name="line0" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -175,8 +175,8 @@ G: <input type="checkbox" name="line0gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line1gradient">
-<input type="text" name="line1type"></td>
-<input type="text" name="line1" size="100"></td>
+<input type="text" name="line1type">
+<input type="text" name="line1" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -186,8 +186,8 @@ G: <input type="checkbox" name="line1gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line2gradient">
-<input type="text" name="line2type"></td>
-<input type="text" name="line2" size="100"></td>
+<input type="text" name="line2type">
+<input type="text" name="line2" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -197,8 +197,8 @@ G: <input type="checkbox" name="line2gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line3gradient">
-<input type="text" name="line3type"></td>
-<input type="text" name="line3" size="100"></td>
+<input type="text" name="line3type">
+<input type="text" name="line3" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -208,8 +208,8 @@ G: <input type="checkbox" name="line3gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line4gradient">
-<input type="text" name="line4type"></td>
-<input type="text" name="line4" size="100"></td>
+<input type="text" name="line4type">
+<input type="text" name="line4" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -219,8 +219,8 @@ G: <input type="checkbox" name="line4gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line5gradient">
-<input type="text" name="line5type"></td>
-<input type="text" name="line5" size="100"></td>
+<input type="text" name="line5type">
+<input type="text" name="line5" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -230,8 +230,8 @@ G: <input type="checkbox" name="line5gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line6gradient">
-<input type="text" name="line6type"></td>
-<input type="text" name="line6" size="100"></td>
+<input type="text" name="line6type">
+<input type="text" name="line6" size="50"></td>
 </tr>
 <tr>
 <td colspan="3">I:
@@ -241,8 +241,8 @@ G: <input type="checkbox" name="line6gradient">
 <option value="2">2</option>
 </select>
 G: <input type="checkbox" name="line7gradient">
-<input type="text" name="line7type"></td>
-<input type="text" name="line7" size="100"></td>
+<input type="text" name="line7type">
+<input type="text" name="line7" size="50"></td>
 </tr>
 </table>
 <input type="submit">

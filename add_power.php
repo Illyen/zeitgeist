@@ -7,7 +7,7 @@ require_once 'generatePowerTables.php';
 require_once 'mysqlbackend.php';
 ?>
 <body>
-	
+
 <?php
 $power_name 		= "";
 $power_class 		= "";
@@ -70,13 +70,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 	}
 
 	if(!empty($_POST['keywords'])) {
-		$keywordArray = cleanInput(explode(',',$_POST['keywords']));
+		$keywordArray = explode(',',cleanInput($_POST['keywords']));
 	}
 	for($i=0;$i<8;$i++) {
 		$grad = 0;
 		if(isset($_POST["line{$i}gradient"])) $grad = 1;
 		if(!empty($_POST["line{$i}"])){
-			$linesArray = array($_POST["line{$i}indent"],cleanInput($grad,$_POST["line{$i}type"]),stripslashes($_POST["line{$i}"]);
+			$linesArray[] = array('line_indent'=>$_POST["line{$i}indent"],'line_gradient'=>$grad,'line_type'=>cleanInput($_POST["line{$i}type"]),'line_text'=>stripslashes($_POST["line{$i}"]));
 		}
 		else {
 			break;
@@ -88,6 +88,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
 
 	echo 'Preview: ';
+	echo '<div style="position: absolute; background-color: #f9f9f9; box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.3); z-index: 1">';
 	echo '<table class="powertable"><tr><th class="atwill powername" colspan="4">',$power_name,'<span class="powerlevel">',$_POST['power_class'],' ';
 	switch ($_POST['power_type2']) {
 		case 0: echo 'Attack'; break;
@@ -153,6 +154,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 	}
 
 	echo '</table>',"\n";
+	echo '</div>',"\n";
 
 }
 else {
