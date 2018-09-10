@@ -317,4 +317,9 @@ function getPowers($userID){
 	return $powerIDArray;
 
 }
+
+function cleanInput($data) {
+	$data = trim(stripslashes(htmlspecialchars($data)));
+	return $data;
+}
 ?>

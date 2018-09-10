@@ -98,7 +98,7 @@ function generatePowerTable($powerID) {
 			echo ' class="';
 			if($line['line_indent'] == 1) echo 'indent';
 			elseif($line['line_indent'] == 2) echo 'indent2';
-			if($line['line_indent']!=0 or $line['gradient']!=0) echo ' ';
+			if($line['line_indent']!=0 and $line['gradient']!=0) echo ' ';
 			if($line['line_gradient'] == 1) echo 'gradient';
 			echo '"';
 		}

@@ -9,7 +9,7 @@ require_once 'mysqlbackend.php';
 <body>
 
 <?php
-$power_name 		= "";
+/*$power_name 		= "";
 $power_class 		= "";
 $power_level 		= "";
 $power_type 		= "";
@@ -18,7 +18,7 @@ $power_action 		= "";
 $keywords 			= ""; 
 $power_range 		= "";
 $power_range_value 	= "";
-$power_aoe 			= "";
+$power_range_aoe 	= "";
 $power_flavor 		= "";
 $line0 				= "";
 $line0type			= "";
@@ -51,16 +51,14 @@ $line6gradient 		= 0;
 $line7 				= "";
 $line7type			= "";
 $line7indent 		= 0;
-$line7gradient 		= 0;
-$keywordArray = array();
-$linesArray = array();
+$line7gradient 		= 0;*/
 
-function cleanInput($data) {
-	$data = trim(stripslashes(htmlspecialchars($data)));
-	return $data;
-}
+
 
 if ($_SERVER['REQUEST_METHOD']=='POST') {
+	$powerName = "";
+	$keywordArray = array();
+	$linesArray = array();
 	if (empty($_POST['power_name'])) {
 		$power_name = 'Placeholder';
 		echo 'Name is required!'."\n";
@@ -76,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 		$grad = 0;
 		if(isset($_POST["line{$i}gradient"])) $grad = 1;
 		if(!empty($_POST["line{$i}"])){
-			$linesArray[] = array('line_indent'=>$_POST["line{$i}indent"],'line_gradient'=>$grad,'line_type'=>cleanInput($_POST["line{$i}type"]),'line_text'=>stripslashes($_POST["line{$i}"]));
+			$linesArray[] = array('line_indent'=>cleanInput($_POST["line{$i}indent"]),'line_gradient'=>$grad,'line_type'=>cleanInput($_POST["line{$i}type"]),'line_text'=>cleanInput($_POST["line{$i}"]));
 		}
 		else {
 			break;
@@ -89,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
 	echo 'Preview: ';
 	echo '<div style="position: absolute; background-color: #f9f9f9; box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.3); z-index: 1">';
-	echo '<table class="powertable"><tr><th class="atwill powername" colspan="4">',$power_name,'<span class="powerlevel">',$_POST['power_class'],' ';
+	echo '<table class="powertable"><tr><th class="atwill powername" colspan="4">',$power_name,'<span class="powerlevel">',cleanInput($_POST['power_class']),' ';
 	switch ($_POST['power_type2']) {
 		case 0: echo 'Attack'; break;
 		case 1: echo 'Utility'; break;
@@ -98,12 +96,12 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 		case 4: echo 'Class Feature'; break;
 		case 5: echo 'Race Feature'; break;
 	}
-	echo ' ',$_POST['power_level'],'</span></th></tr>',"\n";
+	echo ' ',cleanInput($_POST['power_level']),'</span></th></tr>',"\n";
 
-	echo '<tr><td class="flavortext" colspan="4">',$_POST['power_flavor'],'</td></tr>',"\n";
+	echo '<tr><td class="flavortext" colspan="4">',cleanInput($_POST['power_flavor']),'</td></tr>',"\n";
 
 	echo '<tr><td colspan="4"><b>';
-	switch ($_POST['power_type']) {
+	switch (cleanInput($_POST['power_type'])) {
 		case 0: echo 'At-Will'; break;
 		case 1: echo 'Encounter'; break;
 		case 2: echo 'Daily'; break;
@@ -118,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 	echo '</b></td></tr>',"\n";
 
 	echo '<tr><td colspan="2"><b>';
-	switch ($_POST['power_action']) {
+	switch (cleanInput($_POST['power_action'])) {
 		case 0: echo 'Standard Acion'; break;
 		case 1: echo 'Move Action'; break;
 		case 2: echo 'Minor Action'; break;
@@ -127,12 +125,12 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 		case 5: echo 'Immediate Reaction'; break;
 	}
 	echo '</b></td><td colspan="2"><b>';
-	switch ($_POST['power_range']) {
-		case 0: echo 'Ranged</b> ',$_POST['power_range_value']; break;
-		case 1: echo 'Melee</b> ',$_POST['power_range_value']; break;
-		case 2: echo 'Close Blast</b> ',$_POST['power_range_value']; break;
-		case 3: echo 'Close Burst</b> ',$_POST['power_range_value']; break;
-		case 4: echo 'Area</b> ',$_POST['power_range_aoe'],' in ',$_POST['power_range_value']; break;
+	switch (cleanInput($_POST['power_range'])) {
+		case 0: echo 'Ranged</b> ',cleanInput($_POST['power_range_value']); break;
+		case 1: echo 'Melee</b> ',cleanInput($_POST['power_range_value']); break;
+		case 2: echo 'Close Blast</b> ',cleanInput($_POST['power_range_value']); break;
+		case 3: echo 'Close Burst</b> ',cleanInput($_POST['power_range_value']); break;
+		case 4: echo 'Area</b> ',cleanInput($_POST['power_range_aoe']),' in ',cleanInput($_POST['power_range_value']); break;
 		case 5: echo 'Personal</b>'; break;
 	}
 	echo '</td></tr>',"\n";
@@ -143,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 			echo ' class="';
 			if($line['line_indent'] == 1) echo 'indent';
 			elseif($line['line_indent'] == 2) echo 'indent2';
-			if($line['line_indent']!=0 or $line['gradient']!=0) echo ' ';
+			if($line['line_indent']!=0 and $line['gradient']!=0) echo ' ';
 			if($line['line_gradient'] == 1) echo 'gradient';
 			echo '"';
 		}
@@ -158,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST') {
 
 }
 else {
-echo 'Something went wrong, please return to <a href="http://zeitgeist.lhmh.bplaced.net" style="text-decoration: none; color: blue;">start</a>... ';
+echo 'Something went wrong, please return to <a href="http://zeitgeist.lhmh.bplaced.net/add_power_form.php" style="text-decoration: none; color: blue;">start</a>... ';
 }
 
 ?>
