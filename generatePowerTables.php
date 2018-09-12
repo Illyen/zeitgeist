@@ -38,19 +38,19 @@ function generatePowerTable($powerID) {
 
 	echo '<tr>',"\n";
 
-	echo '<td class="atwill" colspan="2">',$powerArray['power_name'],"\n";
+	echo '<td class="',($powerArray['power_type']==0)?'At-Will':($powerArray['power_type']==1)?'Encounter':'Daily','" colspan="2">',$powerArray['power_name'],"\n";
 
 	echo '<span class="dropdown dropbtn expand">&raquo;',"\n";
 
 	echo '<div class="dropdown-content">';
 
-	echo '<table class="powertable"><tr><th class="atwill powername" colspan="4">',$powerArray['power_name'],'<span class="powerlevel">',$powerArray['power_class'],' ';
+	echo '<table class="powertable"><tr><th class="',($powerArray['power_type']==0)?'At-Will':($powerArray['power_type']==1)?'Encounter':'Daily',' powername" colspan="4">',$powerArray['power_name'],'<span class="powerlevel">',$powerArray['power_class'],' ';
 	switch ($powerArray['power_type2']) {
 		case 0: echo 'Attack'; break;
 		case 1: echo 'Utility'; break;
 		case 2: echo 'Combat Action'; break;
 		case 3: echo 'Item Power'; break;
-		case 4: echo 'Class Feature'; break;
+		case 4: echo 'Feature'; break;
 		case 5: echo 'Race Feature'; break;
 	}
 	echo ' ',$powerArray['power_level'],'</span></th></tr>',"\n";
@@ -98,7 +98,7 @@ function generatePowerTable($powerID) {
 			echo ' class="';
 			if($line['line_indent'] == 1) echo 'indent';
 			elseif($line['line_indent'] == 2) echo 'indent2';
-			if($line['line_indent']!=0 and $line['gradient']!=0) echo ' ';
+			if($line['line_indent']!=0 and $line['line_gradient']!=0) echo ' ';
 			if($line['line_gradient'] == 1) echo 'gradient';
 			echo '"';
 		}
@@ -116,7 +116,7 @@ function generatePowerTable($powerID) {
 
 	echo '</td>',"\n";
 
-	echo '<td class="alignright">';
+	echo '<td class="aligncenter">';
 	if ($powerArray['power_level']<1 or $powerArray['power_level']>99) {
 		echo '-';
 	}

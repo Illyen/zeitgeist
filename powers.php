@@ -10,11 +10,9 @@ require_once 'generatePowerTables.php';
 <?php
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
-$players = array('Thomas', 'Fabian');
 
-foreach ($players as $playername) {
-	echo generatePlayerPowerTable($playername);
-}
+echo generatePlayerPowerTable($_GET['user']);
+
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 
  ?>

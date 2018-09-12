@@ -57,13 +57,13 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$stmPowerSearch->store_result();
 
 	//if power is new, INSERT
-	if($stmPowerSearch->num_rows === 0){
+	if($stmPowerSearch->num_rows == 0){
 		$stmPowerSearch->close();
 		echo 'New power, inserting... ';
 		//prepare NULL values:
-    	if ($rangevalue === 0) $rangevalue = NULL;
-    	if ($aoe === 0) $aoe = NULL;
-    	if ($flavor === '') $flavor = NULL;
+    	if ($rangevalue == 0) $rangevalue = NULL;
+    	if ($aoe == 0) $aoe = NULL;
+    	if ($flavor == '') $flavor = NULL;
 
 		$stmPower = $conn->prepare('INSERT INTO powers (power_name, power_class, power_level, power_type, power_type2, power_action, power_range, power_range_value, power_range_aoe, power_flavor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
 		$stmPower->bind_param('ssiiiiiiis',$name, $class, $level, $type, $type2, $action, $range, $rangevalue, $aoe, $flavor);
@@ -82,6 +82,8 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 
 		echo "$powerID<br />\n";
 		echo('Check your input or contact admin for changing or deleting existing powers.');
+
+		disconnectMySQL($conn);
 		return -1;
 	}
 
@@ -95,15 +97,16 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$stmKeywordSearch->bind_param('s', $keywordName);
 	$stmKeywordInsert->bind_param('s', $keywordName);
 
-	foreach ($keywords as $key => $value) {
+	foreach ($keywords as $value) {
 		$keywordName = $value;
 		$stmKeywordSearch->execute();
 		$stmKeywordSearch->store_result();
 		//if keyword is new, insert
-		if ($stmKeywordSearch->num_rows === 0) {
+		if ($stmKeywordSearch->num_rows == 0) {
 			echo 'New keyword, inserting ... ';
 			$stmKeywordInsert->execute();
 			$keywordID = $conn->insert_id;
+			$stmKeywordSearch->free_result();
 			echo "Insertion successful, keyword_id is $keywordID <br />\n";
 		}
 		else {
@@ -111,6 +114,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 			$keywordID = 0;
 			$stmKeywordSearch->bind_result($keywordID);
 			$stmKeywordSearch->fetch();
+			$stmKeywordSearch->free_result();
 			echo "$keywordID<br />\n";
 		}
 		$stmKeywordAssoc->bind_param("ii", $powerID, $keywordID);
@@ -163,11 +167,11 @@ $powers = array(
 EXPECTS a nested array for $powers, so won't accept $powers=array('Lance of Faith',0); only $powers=array(array('Lance of Faith',0));
 */
 
-function assocPowers($username, $powers)
+function assocPowers($userID, $powers)
 {
 	$conn = connectMySQL();
 
-	$userID = getUserID($username);
+
 	if($userID == -1){
 		trigger_error('User not existing, stopping execution.', E_USER_ERROR);
 	}
@@ -183,8 +187,9 @@ function assocPowers($username, $powers)
 		$powername = $power[0];
 		$stmPowerSearch->execute();
 		$stmPowerSearch->store_result();
-		if($stmPowerSearch->num_rows === 0){
-			echo 'Power not existing, stopping execution.';
+		if($stmPowerSearch->num_rows == 0){
+		trigger_error('Power doesn\'t exist.', E_USER_WARNING);
+			disconnectMySQL($conn);
 			return -1;
 		}
 		$stmPowerSearch->fetch();
@@ -238,6 +243,19 @@ function addUser($username) {
 	return $userID;
 }
 
+function getUsers() {
+	$conn = connectMySQL();
+	$stmSearchUser = $conn->prepare('SELECT user_id, user_name FROM users ORDER BY user_id');
+	$stmSearchUser->execute();
+	$userResult= $stmSearchUser->get_result();
+	$userArray = array();
+	while($row = $userResult->fetch_assoc()) {
+	  	if (!empty($row['user_name'])) $userArray[$row['user_id']] = $row['user_name'];
+	}
+	disconnectMySQL($conn);
+	return $userArray;
+}
+
 function getUserID($username) {
 	$conn = connectMySQL();
 	$userID = 0;
@@ -245,11 +263,12 @@ function getUserID($username) {
 	$stmSearchUser->bind_param('s',$username);
 	$stmSearchUser->execute();
 	$stmSearchUser->store_result();
-	if($stmSearchUser->num_rows === 0) return -1;
+	if($stmSearchUser->num_rows == 0) return -1;
 	$stmSearchUser->bind_result($userID);
 	$stmSearchUser->fetch();
-	return $userID;
+
 	disconnectMySQL($conn);
+	return $userID;
 }
 
 //TO OPTIMIZE: allow getPower to accept an array, return an array of multiple powers. for now, this will do.
@@ -260,7 +279,7 @@ function getPower($powerID) {
 	$stm->bind_param('i',$powerID);
 	$stm->execute();
 	$powerResult = $stm->get_result();
-	if($powerResult->num_rows === 0) exit("ID $powerID not a valid powerID");
+	if($powerResult->num_rows == 0) exit("ID $powerID not a valid powerID");
 	$powerArray = $powerResult->fetch_assoc();
 	$stm->close();
 	disconnectMySQL($conn);
@@ -275,7 +294,7 @@ function getKeywords($powerID) {
 	$keywordResult = $stm->get_result();
 	$keywordArray = array();
 	while($row = $keywordResult->fetch_assoc()) {
-	  	$keywordArray[] = $row['keyword_name'];
+	  	if (!empty($row['keyword_name'])) $keywordArray[] = $row['keyword_name'];
 	}
 	$stm->close();
 	disconnectMySQL($conn);

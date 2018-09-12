@@ -233,3 +233,6 @@ th {
     font-size: 10pt;
     padding-top: 2pt;
 }
+.powerTableTextInput {
+    width: 100%;
+}
