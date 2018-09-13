@@ -33,7 +33,7 @@ $type = 0; 		//types: 0: At-Will 	1: Encounter 	2: Daily
 $type2 = 0;		//types: 0: Attack 		1: Utility		2: Combat Action 	3: Item Power 	4: Class Feature 	5: Race Feature
 $keywords = array("Divine","Implement","Radiant");
 $action = 0;	//types: 0: Standard 	1: Move 		2: Minor 			3: Free 		4: Immediate Interrupt 	5: Immediate Reaction
-$range = 0;		//types: O: Ranged 		1: Melee 		2: Close blast		3: Close burst 	4: Area 			5: Personal
+$range = 0;		//types: O: Ranged 		1: Melee 		2: Close blast		3: Close burst 	4: Area 			5: Personal 	6: Melee touch
 $rangevalue = 5;
 $aoe = 0;
 $flavor = "A brilliant ray of light sears your foe with golden radiance. Sparkles of light linger around the target, guiding your ally’s attack.";
@@ -98,7 +98,7 @@ function addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$ra
 	$stmKeywordInsert->bind_param('s', $keywordName);
 
 	foreach ($keywords as $value) {
-		$keywordName = $value;
+		$keywordName = trim($value);
 		$stmKeywordSearch->execute();
 		$stmKeywordSearch->store_result();
 		//if keyword is new, insert
@@ -167,13 +167,13 @@ $powers = array(
 EXPECTS a nested array for $powers, so won't accept $powers=array('Lance of Faith',0); only $powers=array(array('Lance of Faith',0));
 */
 
-function assocPowers($userID, $powers)
+function assocPowers($userName, $powers)
 {
 	$conn = connectMySQL();
 
-
+	$userID = getUserID($userName);
 	if($userID == -1){
-		trigger_error('User not existing, stopping execution.', E_USER_ERROR);
+		trigger_error("User $userName not existing, stopping execution.", E_USER_ERROR);
 	}
 
 	$powerIDs = array();
@@ -182,19 +182,20 @@ function assocPowers($userID, $powers)
 	$powername = "";
 	$stmPowerSearch = $conn->prepare("SELECT power_id FROM powers WHERE power_name = ?");
 	$stmPowerSearch->bind_param("s",$powername);
-	$stmPowerSearch->bind_result($powerID);
 	foreach ($powers as $power) {
 		$powername = $power[0];
 		$stmPowerSearch->execute();
 		$stmPowerSearch->store_result();
+		$stmPowerSearch->bind_result($powerID);
 		if($stmPowerSearch->num_rows == 0){
-		trigger_error('Power doesn\'t exist.', E_USER_WARNING);
+			trigger_error("Power $powername doesn't exist.", E_USER_WARNING);
 			disconnectMySQL($conn);
 			return -1;
 		}
 		$stmPowerSearch->fetch();
+		echo "Power $powername exists with id $powerID, adding to array to associate.\n";
 		$powerIDs[] = array($powerID, $power[1]);
-
+		$stmPowerSearch->free_result();
 	}
 	$stmPowerSearch->close();
 
@@ -231,11 +232,11 @@ function addUser($username) {
 		$userID = $conn->insert_id;
 	}
 	else {
-		trigger_error('Username already exists', E_USER_WARNING);
+		trigger_error('Username already exists', E_USER_ERROR);
 		return $userID;
 	}
 
-	$stmSearchUser->close();
+	echo "User $username added with ID $userID";
 
 
 	disconnectMySQL($conn);
@@ -323,7 +324,7 @@ function getLines($powerID) {
 
 function getPowers($userID){
 	$conn = connectMySQL();
-	$stm = $conn->prepare('SELECT powers.power_type, powers.power_level, powers.power_id, user_powers.user_powers_usablecount, user_powers.user_powers_usedcount FROM powers INNER JOIN user_powers ON powers.power_id = user_powers.power_id WHERE user_powers.user_id = ? ORDER BY power_type, power_level');
+	$stm = $conn->prepare('SELECT powers.power_name, powers.power_type, powers.power_level, powers.power_id, user_powers.user_powers_usablecount, user_powers.user_powers_usedcount FROM powers INNER JOIN user_powers ON powers.power_id = user_powers.power_id WHERE user_powers.user_id = ? ORDER BY power_type, ( CASE power_type2 WHEN 2 THEN 1 WHEN 5 THEN 2 WHEN 4 THEN 3 WHEN 1 THEN 4 WHEN 0 THEN 4 WHEN 3 THEN 6 END ), power_level, power_name');
 	$stm->bind_param('i',$userID);
 	$stm->execute();
 	$powerIDResult = $stm->get_result();

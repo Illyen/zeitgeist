@@ -4,6 +4,7 @@
 $pageTitle = "Zeitgeist - Powers";
 require 'head.php';
 require_once 'generatePowerTables.php';
+require_once 'mysqlbackend.php';
 ?>
 <body>
 <div id="textblock">
@@ -11,7 +12,15 @@ require_once 'generatePowerTables.php';
 
 echo "\n<!-- Start des automatisch generierten Inhalts -->\n";
 
-echo generatePlayerPowerTable($_GET['user']);
+if (!empty($_GET['user'])) {
+	generatePlayerPowerTable($_GET['user']);
+}
+else {
+	$userarray = getUsers();
+	foreach ($userarray as $user) {
+		generatePlayerPowerTable($user);
+	}
+}
 
 echo "\n<!-- Ende des automatisch generierten Inhalts -->\n";
 

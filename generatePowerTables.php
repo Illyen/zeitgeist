@@ -11,15 +11,15 @@ function generatePlayerPowerTable($playername) {
 	foreach ($powerIDArray as $power) {
 		generatePowerTable($power['power_id']);
 		echo '<td class="aligncenter">';
-		if($power[$usablecount == 0]) {
+		if($power['usablecount'] == 0) {
 			echo '&#8734;';
 		}
 		else {
 			for ($i=0;$i<$power['usedcount'];$i++) {
-				echo '<input type="checkbox" name=",',getUserID($playername),'_',$power['power_id'],'" checked>';
+				echo '<input type="checkbox" name="',getUserID($playername),'_',$power['power_id'],'" checked>';
 			}
 			for ($i=0;$i<($power['usablecount']-$power['usedcount']);$i++) {
-				echo '<input type="checkbox" name=",',getUserID($playername),'_',$power['power_id'],'">';
+				echo '<input type="checkbox" name="',getUserID($playername),'_',$power['power_id'],'">';
 			}
 		}
 		echo '</td>',"\n";
@@ -37,14 +37,14 @@ function generatePowerTable($powerID) {
 	$linesArray = getLines($powerID);
 
 	echo '<tr>',"\n";
-
-	echo '<td class="',($powerArray['power_type']==0)?'At-Will':($powerArray['power_type']==1)?'Encounter':'Daily','" colspan="2">',$powerArray['power_name'],"\n";
+	echo '<td class="',($powerArray['power_type']==0)?'atwill':(($powerArray['power_type']==1)?'encounter':'daily'),'" colspan="2">',$powerArray['power_name'],"\n";
 
 	echo '<span class="dropdown dropbtn expand">&raquo;',"\n";
 
 	echo '<div class="dropdown-content">';
 
-	echo '<table class="powertable"><tr><th class="',($powerArray['power_type']==0)?'At-Will':($powerArray['power_type']==1)?'Encounter':'Daily',' powername" colspan="4">',$powerArray['power_name'],'<span class="powerlevel">',$powerArray['power_class'],' ';
+	echo '<table class="powertable">';
+	echo '<tr><th class="',($powerArray['power_type']==0)?'atwill':(($powerArray['power_type']==1)?'encounter':'daily'),' powername" colspan="4">',$powerArray['power_name'],'<span class="powerlevel">',($powerArray['power_class']=='0')?'':$powerArray['power_class'],' ';
 	switch ($powerArray['power_type2']) {
 		case 0: echo 'Attack'; break;
 		case 1: echo 'Utility'; break;
@@ -53,7 +53,7 @@ function generatePowerTable($powerID) {
 		case 4: echo 'Feature'; break;
 		case 5: echo 'Race Feature'; break;
 	}
-	echo ' ',$powerArray['power_level'],'</span></th></tr>',"\n";
+	echo ' ',($powerArray['power_level']==0)?'':$powerArray['power_level'],'</span></th></tr>',"\n";
 
 	echo '<tr><td class="flavortext" colspan="4">',$powerArray['power_flavor'],'</td></tr>',"\n";
 
@@ -74,7 +74,7 @@ function generatePowerTable($powerID) {
 
 	echo '<tr><td colspan="2"><b>';
 	switch ($powerArray['power_action']) {
-		case 0: echo 'Standard Acion'; break;
+		case 0: echo 'Standard Action'; break;
 		case 1: echo 'Move Action'; break;
 		case 2: echo 'Minor Action'; break;
 		case 3: echo 'Free Action'; break;
@@ -88,7 +88,11 @@ function generatePowerTable($powerID) {
 		case 2: echo 'Close Blast</b> ',$powerArray['power_range_value']; break;
 		case 3: echo 'Close Burst</b> ',$powerArray['power_range_value']; break;
 		case 4: echo 'Area</b> ',$powerArray['power_range_aoe'],' in ',$powerArray['power_range_value']; break;
-		case 5: echo 'Personal</b>'; break;
+		case 5: echo 'Personal</b>'; break;	
+		case 6: echo 'Melee</b> touch '; break;
+		case 7: echo 'Melee</b> weapon '; break;
+		case 8: echo 'Ranged</b> weapon '; break;
+		case 9: echo 'Melee </b> or <b>Ranged</b> weapon '; break;
 	}
 	echo '</td></tr>',"\n";
 
@@ -103,7 +107,7 @@ function generatePowerTable($powerID) {
 			echo '"';
 		}
 		echo '>';
-		if($line['line_type'] != NULL) echo '<b>',$line['line_type'],':</b> ';
+		if($line['line_type'] != NULL) echo '<b>',$line['line_type'],($line['line_text']==NULL)?'':':','</b> ';
 		echo $line['line_text'];
 		echo '</td></tr>',"\n";
 	}

@@ -12,7 +12,7 @@
             Aktuelle Ereignisse:
         </p>
             <ul>
-                <li>Neue Übersichtsseite für Powers: <a href="http://zeitgeist.lhmh.bplaced.net/powers.html" target="_blank" style="text-decoration: none; color: blue;">Link</a> (noch in Arbeit)</li>
+                <li>Neue Übersichtsseite für Powers: <a href="http://zeitgeist.lhmh.bplaced.net/powers.php?all=true" target="_blank" style="text-decoration: none; color: blue;">Link</a> (noch in Arbeit)</li>
                 <li>
                     Ich werde von jetzt an das Prestige System mehr benutzen (s. S. 21&amp;22 Player's Guide), insbesondere f&uuml;r das Anfordern von magischen Items. Daf&uuml;r gilt folgendes:
                     <br />

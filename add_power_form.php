@@ -50,9 +50,9 @@ require_once 'mysqlbackend.php';
 						<select name="power_type">
 							<?php
 							if (isset($_POST['power_type'])) {
-							echo '<option value="0"';if ($_POST['power_type']==0) echo ' selected'; echo '>At-Will</option>'."\n";
-							echo '<option value="1"';if ($_POST['power_type']==1) echo ' selected'; echo '>Encounter</option>'."\n";
-							echo '<option value="2"';if ($_POST['power_type']==2) echo ' selected'; echo '>Daily</option>'."\n";
+							echo '<option value="0"';if ($_POST['power_type']=='0') echo ' selected'; echo '>At-Will</option>'."\n";
+							echo '<option value="1"';if ($_POST['power_type']=='1') echo ' selected'; echo '>Encounter</option>'."\n";
+							echo '<option value="2"';if ($_POST['power_type']=='2') echo ' selected'; echo '>Daily</option>'."\n";
 							}
 							else {
 							echo '<option value="0">At-Will</option>
@@ -67,12 +67,12 @@ require_once 'mysqlbackend.php';
 						<select name="power_type2">
 							<?php
 							if (isset($_POST['power_type2'])) {
-							echo '<option value="0"';if ($_POST['power_type2']==0) echo ' selected'; echo '>Attack</option>'."\n";
-							echo '<option value="1"';if ($_POST['power_type2']==1) echo ' selected'; echo '>Utility</option>'."\n";
-							echo '<option value="2"';if ($_POST['power_type2']==2) echo ' selected'; echo '>Combat Action</option>'."\n";
-							echo '<option value="3"';if ($_POST['power_type2']==3) echo ' selected'; echo '>Item Power</option>'."\n";
-							echo '<option value="4"';if ($_POST['power_type2']==4) echo ' selected'; echo '>Class Feature</option>'."\n";
-							echo '<option value="5"';if ($_POST['power_type2']==5) echo ' selected'; echo '>Race Feature</option>'."\n";
+							echo '<option value="0"';if ($_POST['power_type2']=='0') echo ' selected'; echo '>Attack</option>'."\n";
+							echo '<option value="1"';if ($_POST['power_type2']=='1') echo ' selected'; echo '>Utility</option>'."\n";
+							echo '<option value="2"';if ($_POST['power_type2']=='2') echo ' selected'; echo '>Combat Action</option>'."\n";
+							echo '<option value="3"';if ($_POST['power_type2']=='3') echo ' selected'; echo '>Item Power</option>'."\n";
+							echo '<option value="4"';if ($_POST['power_type2']=='4') echo ' selected'; echo '>Class Feature</option>'."\n";
+							echo '<option value="5"';if ($_POST['power_type2']=='5') echo ' selected'; echo '>Race Feature</option>'."\n";
 							}
 							else {
 							echo '<option value="0">Attack</option>
@@ -90,12 +90,12 @@ require_once 'mysqlbackend.php';
 						<select name="power_action">
 							<?php
 							if (isset($_POST['power_action'])) {
-							echo '<option value="0"';if ($_POST['power_action']==0) echo ' selected'; echo '>Standard</option>'."\n";
-							echo '<option value="1"';if ($_POST['power_action']==1) echo ' selected'; echo '>Move</option>'."\n";
-							echo '<option value="2"';if ($_POST['power_action']==2) echo ' selected'; echo '>Minor</option>'."\n";
-							echo '<option value="3"';if ($_POST['power_action']==3) echo ' selected'; echo '>Free</option>'."\n";
-							echo '<option value="4"';if ($_POST['power_action']==4) echo ' selected'; echo '>Immediate Interrupt</option>'."\n";
-							echo '<option value="5"';if ($_POST['power_action']==5) echo ' selected'; echo '>Immediate Reaction</option>'."\n";
+							echo '<option value="0"';if ($_POST['power_action']=='0') echo ' selected'; echo '>Standard</option>'."\n";
+							echo '<option value="1"';if ($_POST['power_action']=='1') echo ' selected'; echo '>Move</option>'."\n";
+							echo '<option value="2"';if ($_POST['power_action']=='2') echo ' selected'; echo '>Minor</option>'."\n";
+							echo '<option value="3"';if ($_POST['power_action']=='3') echo ' selected'; echo '>Free</option>'."\n";
+							echo '<option value="4"';if ($_POST['power_action']=='4') echo ' selected'; echo '>Immediate Interrupt</option>'."\n";
+							echo '<option value="5"';if ($_POST['power_action']=='5') echo ' selected'; echo '>Immediate Reaction</option>'."\n";
 							}
 							else {
 							echo '<option value="0">Standard</option>
@@ -121,16 +121,24 @@ require_once 'mysqlbackend.php';
 						<select name="power_range">
 							<?php
 							if (isset($_POST['power_range'])) {
-							echo '<option value="0"';if ($_POST['power_range']==0) echo ' selected'; echo '>Ranged</option>';
-							echo '<option value="1"';if ($_POST['power_range']==0) echo ' selected'; echo '>Melee</option>';
-							echo '<option value="2"';if ($_POST['power_range']==0) echo ' selected'; echo '>Close Blast</option>';
-							echo '<option value="3"';if ($_POST['power_range']==0) echo ' selected'; echo '>Close Burst</option>';
-							echo '<option value="4"';if ($_POST['power_range']==0) echo ' selected'; echo '>Area</option>';
-							echo '<option value="5"';if ($_POST['power_range']==0) echo ' selected'; echo '>Personal</option>';
+							echo '<option value="0"';if ($_POST['power_range']=='0') echo ' selected'; echo '>Ranged</option>';
+							echo '<option value="1"';if ($_POST['power_range']=='1') echo ' selected'; echo '>Melee</option>';
+							echo '<option value="6"';if ($_POST['power_range']=='6') echo ' selected'; echo '>Melee touch</option>';
+							echo '<option value="7"';if ($_POST['power_range']=='7') echo ' selected'; echo '>Melee weapon</option>';
+							echo '<option value="8"';if ($_POST['power_range']=='8') echo ' selected'; echo '>Ranged weapon</option>';
+							echo '<option value="9"';if ($_POST['power_range']=='9') echo ' selected'; echo '>M./R. weapon</option>';
+							echo '<option value="2"';if ($_POST['power_range']=='2') echo ' selected'; echo '>Close Blast</option>';
+							echo '<option value="3"';if ($_POST['power_range']=='3') echo ' selected'; echo '>Close Burst</option>';
+							echo '<option value="4"';if ($_POST['power_range']=='4') echo ' selected'; echo '>Area</option>';
+							echo '<option value="5"';if ($_POST['power_range']=='5') echo ' selected'; echo '>Personal</option>';
 							}
 							else {
 							echo '<option value="0">Ranged</option>
 							<option value="1">Melee</option>
+							<option value="6">Melee touch</option>
+							<option value="7">Melee weapon</option>
+							<option value="8">Ranged weapon</option>
+							<option value="9">M./R. weapon</option>
 							<option value="2">Close Blast</option>
 							<option value="3">Close Burst</option>
 							<option value="4">Area</option>
@@ -161,14 +169,14 @@ require_once 'mysqlbackend.php';
 					<td colspan="4">Text</td>
 				</tr>
 				<?php
-				for ($i=0;$i<8;$i++) {
+				for ($i=0;$i<12;$i++) {
 					echo '<tr>'."\n";
 					echo '<td>I:'."\n";
 					echo '<select name="line'.$i.'indent">'."\n";
 					if (isset($_POST["line{$i}indent"])) {
-						echo '<option value="0';if ($_POST["line{$i}indent"]==0) echo ' selected'; echo '">0</option>'."\n";
-						echo '<option value="1';if ($_POST["line{$i}indent"]==1) echo ' selected'; echo '">1</option>'."\n";
-						echo '<option value="2';if ($_POST["line{$i}indent"]==2) echo ' selected'; echo '">2</option>'."\n";
+						echo '<option value="0"';if ($_POST["line{$i}indent"]=='0') echo ' selected'; echo '>0</option>'."\n";
+						echo '<option value="1"';if ($_POST["line{$i}indent"]=='1') echo ' selected'; echo '>1</option>'."\n";
+						echo '<option value="2"';if ($_POST["line{$i}indent"]=='2') echo ' selected'; echo '>2</option>'."\n";
 					}
 					else {
 						echo '<option value="0">0</option>'."\n";
@@ -192,8 +200,6 @@ require_once 'mysqlbackend.php';
 						<select name="user">
 							<?php
 								$users = getUsers();
-
-								var_dump($users);
 								foreach ($users as $index => $user) {
 									echo '<option value="',$user,'"'; if ($_POST['user']==$user) echo ' selected'; echo ">$user</option>\n";
 								}

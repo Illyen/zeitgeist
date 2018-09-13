@@ -36,6 +36,7 @@ EXPECTS a nested array for $powers, so won't accept $powers=array('Lance of Fait
 */
 
 if ($_GET['admin']=='true') {
+require_once 'mysqlbackend.php';
 $name = 'Icy End of the Earth';
 $class = 'Eschatologist';
 $level = 1;
@@ -57,7 +58,7 @@ $lines = array(
 	array(1,1,'Sustain Minor','You must be bloodied to sustain this power. If you are outside the zone, you take 5 cold damage. If you are inside the zone, you can sustain without spending an action. You cannot heal or gain temporary hit points while this power is active.'),
 	array(1,0,'It Will All Turn To Dust','You may choose to peel away impermanent physical structures. If you do, within the zone creatures can move through man-made objects and structures that are less than a thousand years old as if they had phasing.')
 );
-$username = 'Thomas';
+$username = 'Daniel';
 $usablecount = 0;
 
 $powersToAdd = array(
@@ -69,24 +70,16 @@ $powersToAdd = array(
 
 
 	//CUSTOM, start custom here
-	array('Lance of Faith',0),
-	array('Astral Seal',0),
-	array('Sacred Flame',0),
 	array('Second Wind',1),
-	array('Channel Divinity: Healer\s Mercy',1),
-	array('Channel Divinity: Divine Fortune',1),
-	array('Healing Word',2),
-	array('Shield Bearer',1),
-	array('Shield Bearer',1),
-	array('Icy End of the Earth',1),
 );
 
+//commented out for safety
 
 
-$powerID = addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
+//$powerID = addPower ($name,$class,$level,$type,$type2,$keywords,$action,$range,$rangevalue,$aoe,$flavor,$lines);
 
 
-assocPower(getUserID($username),$powersToAdd);
+assocPowers($username,$powersToAdd);
 
 
 //addUser($username);
