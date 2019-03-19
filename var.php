@@ -212,7 +212,7 @@ $players = array (
 	"Thomas" =>array(
 		array("Symbol of Life",	3, true),
 		array("Veteran's Armor",2, true),
-		array("Amulet of Protection",1, true),
+		array("Amulet of Protection",2, true),
 		array("Golden Icon of Urim",0, false),
 		array("Veganes Grimoire", 1, false),
 		),
