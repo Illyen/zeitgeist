@@ -72,8 +72,9 @@ $itemflavortexts = array
 	"Staff of the Adaptable Mind"=>"This staff lets you move at the instant you perceive a threat, allowing you and your friends to avoid harm.",
 	"Elusive Armor"			=>"This armor offers no purchase to foes that would pin you down.",
 	"Safewing Amulet"		=>"This orange amulet reduces the damage you suffer when falling.",
-	"Aura Killer Weapon"	=>"The dark purple magic trailing this weapon's wake shuts down your enemy's subtle spells and instinctive powers."
-	"Fortification Armor"	=>"Dragonborn are no strangers to battle, and they developed this armor to deflect the deadliest enemy attacks."
+	"Aura Killer Weapon"	=>"The dark purple magic trailing this weapon's wake shuts down your enemy's subtle spells and instinctive powers.",
+	"Fortification Armor"	=>"Dragonborn are no strangers to battle, and they developed this armor to deflect the deadliest enemy attacks.",
+	"Cloak of Distortion"	=>"This cloak rolls about you like the rippling air of a scorching desert."
 );
 
 $itemproperties = array
@@ -104,6 +105,7 @@ $itemproperties = array
 	"Elusive Armor"			=>array("You gain a +2 bonus to escape checks.",),
 	"Safewing Amulet"		=>array("When falling, reduce the distance by 10 feet for every plus (-10 feet for +1, -20 for +2, and so on) for the purpose of calculating damage. You always land on your feet after a fall."),
 	"Fortification Armor"	=>array("Whenever a critical hit is scored against you, roll 1d20. On a result of 16-20, the critical hit becomes a normal hit."),
+	"Cloak of Distortion"	=>array("A ranged attack against you from more than 5 squares away takes a -5 penalty to the attack roll."),
 
 );
 
@@ -212,6 +214,7 @@ $items = array(
 	"Safewing Amulet"		=>array(3,  true,  	0,  2,  3,  0,  1,  0),
 	"Aura Killer Weapon"	=>array(3,	true,	1, 11,  1,  "1d6",0,1),
 	"Fortification Armor"	=>array(4,	true,  	1, 16,  2,  0,  1,  0),
+	"Cloak of Distortion"	=>array(4,	true,  	1,  2,  3,  0,  1,  0),
 );
 
 $players = array (
@@ -246,7 +249,8 @@ $players = array (
 		),
 	"Caro" =>array(
 		array("Aura Killer Weapon", 2, true, "Aura Killer Battleaxe"),
-		array("Fortification Armor", 2, true, "Fortification Scale Armor")
+		array("Fortification Armor", 2, true, "Fortification Scale Armor"),
+		array("Cloak of Distortion", 2, true)
 		),
 	"Richard" =>array(
 		array("Crown of Leaves", 0, false),
