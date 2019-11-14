@@ -30,7 +30,7 @@ $itemtype = array(
 	"Hand Slot Item",				#12
 	"Weapon:</b> any<b>",			#13
 	"Feet Slot Items",				#14
-	"Armor:</b> Cloth, Leather<b>"	#15
+	"Armor:</b> Cloth, Leather<b>",	#15
 	"Armor:</b> Scale, Plate<b>"	#16
 
 
