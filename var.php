@@ -31,6 +31,7 @@ $itemtype = array(
 	"Weapon:</b> any<b>",			#13
 	"Feet Slot Items",				#14
 	"Armor:</b> Cloth, Leather<b>"	#15
+	"Armor:</b> Scale, Plate<b>"	#16
 
 
 );
@@ -71,6 +72,8 @@ $itemflavortexts = array
 	"Staff of the Adaptable Mind"=>"This staff lets you move at the instant you perceive a threat, allowing you and your friends to avoid harm.",
 	"Elusive Armor"			=>"This armor offers no purchase to foes that would pin you down.",
 	"Safewing Amulet"		=>"This orange amulet reduces the damage you suffer when falling.",
+	"Aura Killer Weapon"	=>"The dark purple magic trailing this weapon's wake shuts down your enemy's subtle spells and instinctive powers."
+	"Fortification Armor"	=>"Dragonborn are no strangers to battle, and they developed this armor to deflect the deadliest enemy attacks."
 );
 
 $itemproperties = array
@@ -100,7 +103,7 @@ $itemproperties = array
 	"Staff of the Adaptable Mind"=>array("You gain a +1 item bonus to perception checks.<br /><i>Level 14 or 19:</i> +2 item bonus.<br /><i>Level 24 or 29:</i> +3 item bonus.",),
 	"Elusive Armor"			=>array("You gain a +2 bonus to escape checks.",),
 	"Safewing Amulet"		=>array("When falling, reduce the distance by 10 feet for every plus (-10 feet for +1, -20 for +2, and so on) for the purpose of calculating damage. You always land on your feet after a fall."),
-
+	"Fortification Armor"	=>array("Whenever a critical hit is scored against you, roll 1d20. On a result of 16-20, the critical hit becomes a normal hit."),
 
 );
 
@@ -161,6 +164,9 @@ $itempowers = array
 	"Elusive Armor"			=>array(
 		"<b>Power (Daily &#10022; Augmentable):</b> Immediate Reaction. <i>Trigger:</i> You are immobilized by an attack. <i>Effect:</i> You are no longer immobilized, and you shift 1 square.<br /><b>Augment 1:</b> The number of squares you shift equals half your speed.",
 	),
+	"Aura Killer Weapon"	=>array(
+		"<b>Power (Daily):</b> Free Action. <i>Trigger:</i> You use this weapon to hit an enemy that has an aura. <i>Effect:</i> The enemy's aura ends, and the enemy can't reactivate it (save ends).",
+	),
 
 );
 
@@ -199,12 +205,13 @@ $items = array(
 	"Weapon of Oaths Fulfilled"=>array(4,true,  1, 13,  1,  "1d6",2,0),
 	"Deepfarer's Pouch"		=>array(5,  false,  0,  3,  0,  0,  1,  0),
 	"Escape Tattoo"			=>array(3,  false,  0, 13,  0,  0,  1,  0),
-	"Holy Adversary's Armor"=>array(3,   true,  1,  8,  2,  0,  0,  1),
-	"Symbol of Brawn"		=>array(3,   true,  1,  0,  1,  "1d6",0,1),
+	"Holy Adversary's Armor"=>array(3,  true,  	1,  8,  2,  0,  0,  1),
+	"Symbol of Brawn"		=>array(3,  true,  	1,  0,  1,  "1d6",0,1),
 	"Staff of the Adaptable Mind"=>array(4,true,1,  9,  1,  "1d8",1,1),
-	"Elusive Armor"			=>array(2,	 true,  1, 15,  2,  0,  1,  1),
-	"Safewing Amulet"		=>array(3,   true,  0,  2,  3,  0,  1,  0),
-
+	"Elusive Armor"			=>array(2,	true,  	1, 15,  2,  0,  1,  1),
+	"Safewing Amulet"		=>array(3,  true,  	0,  2,  3,  0,  1,  0),
+	"Aura Killer Weapon"	=>array(3,	true,	1, 11,  1,  "1d6",0,1),
+	"Fortification Armor"	=>array(4,	true,  	1, 16,  2,  0,  1,  0),
 );
 
 $players = array (
@@ -236,6 +243,10 @@ $players = array (
 		array("Reading Spectacles", 0, true),
 		array("Amulet of Protection", 2, true),
 		array("Burglar Gloves", 0, true),
+		),
+	"Caro" =>array(
+		array("Aura Killer Weapon", 2, true, "Aura Killer Battleaxe"),
+		array("Fortification Armor", 2, true, "Fortification Scale Armor")
 		),
 	"Richard" =>array(
 		array("Crown of Leaves", 0, false),
