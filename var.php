@@ -31,9 +31,9 @@ $itemtype = array(
 	"Weapon:</b> any<b>",			#13
 	"Feet Slot Items",				#14
 	"Armor:</b> Cloth, Leather<b>",	#15
-	"Armor:</b> Scale, Plate<b>"	#16
-
-
+	"Armor:</b> Scale, Plate<b>",	#16
+	"Arm slot item",				#17
+	"Waist slot item",				#18
 );
 
 $itemflavortexts = array
@@ -74,7 +74,12 @@ $itemflavortexts = array
 	"Safewing Amulet"		=>"This orange amulet reduces the damage you suffer when falling.",
 	"Aura Killer Weapon"	=>"The dark purple magic trailing this weapon's wake shuts down your enemy's subtle spells and instinctive powers.",
 	"Fortification Armor"	=>"Dragonborn are no strangers to battle, and they developed this armor to deflect the deadliest enemy attacks.",
-	"Cloak of Distortion"	=>"This cloak rolls about you like the rippling air of a scorching desert."
+	"Cloak of Distortion"	=>"This cloak rolls about you like the rippling air of a scorching desert.",
+	"Helm of Opportunity"	=>"This simple bronze helmet allows you to strike more accurately at those who let down their guard.",
+	"Bracers of Tactical Blows"=>"When your foes let down their guard, these dragonscale bracers make them regret it.",
+	"Shielding Girdle"		=>"This item helps you turn away physical attacks.",
+	"Gauntlets of Blood"	=>"The blood of wounded foes streams along the joints of these rusty-looking steel gauntlets.",
+	"Bag of Holding"		=>"This item appears to be a simple sack of brown canvas.",
 );
 
 $itemproperties = array
@@ -106,6 +111,10 @@ $itemproperties = array
 	"Safewing Amulet"		=>array("When falling, reduce the distance by 10 feet for every plus (-10 feet for +1, -20 for +2, and so on) for the purpose of calculating damage. You always land on your feet after a fall."),
 	"Fortification Armor"	=>array("Whenever a critical hit is scored against you, roll 1d20. On a result of 16-20, the critical hit becomes a normal hit."),
 	"Cloak of Distortion"	=>array("A ranged attack against you from more than 5 squares away takes a -5 penalty to the attack roll."),
+	"Helm of Opportunity"	=>array("Gain a +1 item bonus to opportunity attack rolls.<br /><i>Level 14:</i> +2 item bonus.<br /><i>Level 24:</i> +3 item bonus."),
+	"Bracers of Tactical Blows"	=>array("When you hit with an opportunity attack, deal an extra 1d6 damage.<br /><i>Level 16:</i> 2d6 damage.<br /><i>Level 26:</i> 3d6 damage."),
+	"Gauntlets of Blood"	=>array("You gain a +2 bonus to damage rolls against bloodied targets.<br /><i>Level 14:</i> +4 bonus.<br /><i>Level 24:</i> +6 bonus."),
+	"Bag of Holding"		=>array("This bag can hold up to 200 pounds in weight or 20 cubic feet in volume, but it always weighs only 1 pound. Drawing an item from a bag of holding is a minor action."),
 
 );
 
@@ -169,6 +178,9 @@ $itempowers = array
 	"Aura Killer Weapon"	=>array(
 		"<b>Power (Daily):</b> Free Action. <i>Trigger:</i> You use this weapon to hit an enemy that has an aura. <i>Effect:</i> The enemy's aura ends, and the enemy can't reactivate it (save ends).",
 	),
+	"Shielding Girdle"	=>array(
+		"<b>Power (Daily):</b> Immediate Interrupt. <i>Trigger:</i> You would be hit by an attack <i>Effect:</i> Gain a +4 power bonus to AC until the end of your next turn.",
+	),
 
 );
 
@@ -215,6 +227,11 @@ $items = array(
 	"Aura Killer Weapon"	=>array(3,	true,	1, 11,  1,  "1d6",0,1),
 	"Fortification Armor"	=>array(4,	true,  	1, 16,  2,  0,  1,  0),
 	"Cloak of Distortion"	=>array(4,	true,  	1,  2,  3,  0,  1,  0),
+	"Helm of Opportunity"	=>array(4,	true,  	1,  4,  0,  0,  1,  0),
+	"Bracers of Tactical Blows"=>array(6,true,  1, 17,  0,  0,  1,  0),
+	"Shielding Girdle"		=>array(10, false,  1, 18,  0,  0,  0,  1),
+	"Gauntlets of Blood"	=>array(4, 	true,   1, 12,  0,  0,  1,  0),
+	"Bag of Holding"		=>array(5, 	false,  0,  3,  0,  0,  1,  0),
 );
 
 $players = array (
@@ -250,7 +267,12 @@ $players = array (
 	"Caro" =>array(
 		array("Aura Killer Weapon", 2, true, "Aura Killer Battleaxe"),
 		array("Fortification Armor", 2, true, "Fortification Scale Armor"),
-		array("Cloak of Distortion", 2, true)
+		array("Cloak of Distortion", 2, true),
+		array("Helm of Opportunity", 0, true),
+		array("Bracers of Tactical Blows", 0, true),
+		array("Shielding Girdle", 0, true),
+		array("Gauntlets of Blood", 0, true),
+		array("Bag of Holding", 0, true),
 		),
 	"Richard" =>array(
 		array("Crown of Leaves", 0, false),
