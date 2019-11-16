@@ -12,7 +12,7 @@
             Aktuelle Ereignisse:
         </p>
             <ul>
-                <li>Neue Übersichtsseite für Powers: <a href="http://zeitgeist.lhmh.bplaced.net/powers.php?all=true" target="_blank" style="text-decoration: none; color: blue;">Link</a> (noch in Arbeit)</li>
+                <li>Neue Übersichtsseite für Powers: <a href="http://zeitgeist.lhmh.bplaced.net/powers.php?all=true" target="_blank" style="text-decoration: none; color: blue;">Link</a> (in st&auml;ndigem Wandel)</li>
             <h3>Hausregeln</h3>
                 <ul>
                     <li>Critical Range kann nur tempor&auml;r durch eine Power erh&ouml;ht werden.</li>
