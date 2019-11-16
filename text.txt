@@ -13,23 +13,6 @@
         </p>
             <ul>
                 <li>Neue Übersichtsseite für Powers: <a href="http://zeitgeist.lhmh.bplaced.net/powers.php?all=true" target="_blank" style="text-decoration: none; color: blue;">Link</a> (noch in Arbeit)</li>
-                <li>
-                    Ich werde von jetzt an das Prestige System mehr benutzen (s. S. 21&amp;22 Player's Guide), insbesondere f&uuml;r das Anfordern von magischen Items. Daf&uuml;r gilt folgendes:
-                    <br />
-                    <ul>
-                        <li>Favor Stufe 1: Beliebige Anzahl an gew&ouml;hnlichen Items anfordern.</li>
-                        <li>Favor Stufe 2: Ein ungew&ouml;hnliches Item oder drei ungew&ouml;hnliche Verbrauchsgegenst&auml;nde anfordern.</li>
-                        <li>Favor Stufe 3: Ein seltenes Item anfordern. Es ist nicht garantiert, das das seltene Item verf&uuml;gbar ist!</li>
-                        <li style="list-style-type: none;">Favor Modifier:</li>
-                        <li>Favor +1: Das angeforderte Item hat ein h&ouml;heres Level als die Gruppe. (maximal Gruppenlevel +4)</li>
-                        <li>Favor +1: Jedes ungew&ouml;hnliche oder seltene Item mehr als 8 im Besitz der gesamten Gruppe erh&ouml;ht die Stufe um 1.</li>
-                        <li>Favor +1: Ein Item eines h&ouml;heren Ranges (d.h. heroisch, paragon, episch) anfordern erh&ouml;ht die Stufe um 1.</li>
-                    </ul>
-                    Au&szlig;erdem gilt die Tabelle auf Seite 21 was Zeit angeht.
-                    <br />
-                    Um herauszufinden, welche Seltenheit ein Item hat, entweder dieses <a href="http://www.wizards.com/dndinsider/compendium/" target="_blank" style="text-decoration: none; color: blue;">Tool</a> benutzen oder diese <a href="http://zeitgeist.lhmh.bplaced.net/random-items.html"  target="_blank" style="text-decoration: none; color: blue;">Seite</a> durchsuchen.
-                </li>
-            </ul>
             <h3>Hausregeln</h3>
                 <ul>
                     <li>Critical Range kann nur tempor&auml;r durch eine Power erh&ouml;ht werden.</li>
